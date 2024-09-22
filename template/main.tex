@@ -1,0 +1,192 @@
+\documentclass[12pt,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[shortlabels]{enumitem}
+\usepackage[none]{hyphenat}
+\usepackage{notomath,multicol,siunitx,cancel,graphicx,pgfplots,listings,tikz,bm,xcolor,tcolorbox}
+
+\pgfplotsset{width=10cm,compat=1.9}
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+% Correct the chapter and section numbers here.
+\setcounter{chapter}{1}
+\setcounter{section}{1}
+
+\begin{document}
+	\section{An Introduction to Statistics}
+
+	The field of statistics is the art and science of collecting, presenting, analyzing, and interpreting data.\\
+
+	\noindent It's not just mathematical formulas and recipes. It's partly an ``art'' because judgment, experience, and intuition play a role.\\
+	
+	\noindent We can make a distinction between \textbf{descriptive} and \textbf{inferential} statistics:
+	
+	\begin{itemize}
+		\item{\textbf{Descriptive statistics} are methods for summarizing and organizing the information in a dataset.}
+		\item{\textbf{Inferential statistics} are methods for estimating and drawing conclusions from a dataset.}
+	\end{itemize}
+	
+	\noindent We need some basic ideas about datasets.
+
+	\subsection{Terminology}
+
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{| l | l | l | l | l |}
+				\hline
+				\textbf{Team} & \textbf{Captain's Gender} & \textbf{Wins} & \textbf{Rank} & \textbf{Winning Percentage} \\
+				\hline
+				Dragonborn & Male & 10 & 1 & 0.667 \\
+				\hline
+				Sprites & Female & 9 & 2 & 0.600 \\
+				\hline
+				Enchanters & Female & 7 & 3 & 0.467 \\
+				\hline
+				Trolls & Male & 4 & 4 & 0.267 \\
+				\hline
+			\end{tabular}
+			\caption{Data for an intramural league; see Table 6 on page 16 of the textbook.}
+			\label{table:intramural}
+		\end{center}
+	\end{table}
+
+	\noindent In Table \ref{table:intramural}, the teams are the \textbf{elements}, and the row for each element is an \textbf{observation} (see Table \ref{table:observation}).\\
+
+	\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{| l | l | l | l | l |}
+				\hline
+				\textbf{Team} & \textbf{Captain's Gender} & \textbf{Wins} & \textbf{Rank} & \textbf{Winning Percentage} \\
+				\hline
+				Sprites & Female & 9 & 2 & 0.600 \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\caption{Sprites is an element with an observation.}
+		\label{table:observation}
+	\end{table}
+
+	\noindent Captain's Gender, Wins, Rank, and Winning Percentage are the \textbf{variables} in this dataset.
+
+	\subsection{Classifying Variables}
+
+	The ways we analyze data depend on the kind of data associated with the variable. We distinguish between \textbf{qualitative} and \textbf{quantitative} variables.\\
+
+	\noindent \textbf{Qualitative variables} may be classified into categories, but their values have no numerical meaning.\\
+
+	\noindent \textbf{Quantitative variables} take numerical values, and at least some operations of arithmetic have meaning for these values.
+
+	\begin{tcolorbox}[width=\textwidth,colback={blue!10},title={\textbf{Not all numbers are quantitative.}},colbacktitle={blue!10},coltitle=black]
+		A driver's license number, or the number on the back of a jersey, is a qualitative variable, since it's just a ``label''. There would be no purpose in, say, adding or dividing such numbers.
+	\end{tcolorbox}
+
+	\noindent Qualitative variables can be further classified as \textbf{discrete} or \textbf{continuous}.\\
+
+	\noindent The possible values of a \textbf{discrete variable} are a collection of separate points on the number line. This is often because the variable represents a count of something, so that the possible values are whole numbers, like 0, 1, or 2. Discrete variables cannot represent fractional or decimal numbers, such as 1.7 or 2/3.\\
+
+	\noindent The possible values of a \textbf{continuous variable} form an interval on the number line with no space between points. For example, if a quantity is measured in seconds, or in centimeters, fractional values are certainly possible.\\
+
+	\noindent Referring back to Table \ref{table:intramural}, the variables can be classified as follows:
+
+	\begin{itemize}
+		\item{Captain's Gender: qualitative}
+		\item{Wins: quantitative, discrete}
+		\item{Rank: unknown}
+		\begin{tcolorbox}[width=0.95\textwidth,colback={blue!10},title={\textbf{Why is rank marked as unknown?}},colbacktitle={blue!10},coltitle=black]
+			The book calls this variable qualitative, because the difference in rank doesn't actually measure a meaningful difference between the teams. However, there are valid arguments as to it being either qualitative or quantitative. 
+		\end{tcolorbox}
+		\item{Winning Percentage: quantitative, continuous}
+		\begin{tcolorbox}[width=0.95\textwidth,colback={blue!10},title={\textbf{Why is winning percentage continuous?}},colbacktitle={blue!10},coltitle=black]
+			A winning percentage in this case could be anywhere between 0 and 1, a hallmark property of a continous variable.
+		\end{tcolorbox}
+	\end{itemize}
+
+	\subsection{Statistical Inference}
+
+	We need to use inferential statistics when we want to draw conclusions about a \textbf{population} from a \textbf{sample}.\\
+
+	\noindent A \textbf{population} is the collection of all elements of interest for a particular study.\\
+
+	\noindent A \textbf{sample} is the subset of the population from which information is actually collected.
+
+	\begin{tcolorbox}[width=\textwidth,colback={green!10},title={\textbf{Example: Exercise 53}},colbacktitle={green!10},coltitle=black]
+		A psychologist is concerned about the health of veterans returning from war. She examines 20 veterans and assesses whether they show signs of post-traumatic stress disorder. Identify the population and the sample.\\
+
+		The population is the veterans returning from war.\\
+
+		The sample is the 20 veterans examined by the psychologist.
+	\end{tcolorbox}
+
+	\noindent A characteristic of a population, such as the mean or median value of some variable for the members of that population, is called a \textbf{parameter}. A characteristic of a sample is called a \textbf{statistic}, and is what the study of statistics is named after.\\
+
+	\noindent Thus, we collect sample data to compute statistics when it is impractical to collect data from an entire population and compute a parameter.\\
+
+	\noindent The accuracy with which statistics can be used to estimate parameters is a major theme of the second half of this course.
+
+	\section{Gathering Data}
+
+	\subsection{Sampling Methods}
+
+	\noindent When choosing a sample from a population, we want to try to get a sample with similar characteristics to the population.\\
+
+	\noindent Ideally, we choose a \textbf{random sample}, which means that every element of the population has an equal chance of being selected.\\
+
+	\noindent There are sampling methods that resemble random sampling and may be appropriate in certain situations:
+
+	\begin{itemize}
+		\item{
+			\textbf{Systematic sampling:} Suppose there is a list of all elements of a population. Choose a number $k$ with the idea that one out of every $k$ elements will be sampled. Then choose a number in the range from 1 to $k$ for the starting position.
+
+			\begin{tcolorbox}[width=0.95\textwidth,colback={green!10},title={\textbf{Example: Systematic Sampling}},colbacktitle={green!10},coltitle=black]
+				Let $k=20$, and choose $7$ in the range from $1$ to $20$. We will put the 7\textsuperscript{th} element in the list in our sample, followed by the 27\textsuperscript{th}, 47\textsuperscript{th}, 67\textsuperscript{th}, and so on.
+			\end{tcolorbox}
+		}
+		\item{
+			\textbf{Stratified sampling:} Divide the population into subgroups of interest, such as age group or state of residence. Then take a random sample from each group.
+		}
+		\item{
+			\textbf{Cluster sampling:} Divide the population into \textbf{clusters}, where a cluster is a collection of elements that would be convenient to sample together, such as students in the same class, or people living on the same block. Then choose some of the clusters at random and include the elements in those clusters in the sample.
+		}
+	\end{itemize}
+
+	\begin{tcolorbox}[width=\textwidth,colback={yellow!10},title={\textbf{A Word of Caution: Convenience Sampling}},colbacktitle={yellow!10},coltitle=black]
+		A method to avoid, to the extent that you can, is \textbf{convenience sampling}: choosing the sample that is easiest to study. A way to think about this is to compare the \textbf{target population} to the \textbf{potential population}.\\
+
+		The \textbf{target population} is all elements of the population of interest, and the \textbf{potential population} is the elements of the target population that could actually be sampled by the sampling method used.\\
+
+		When the target and potential population are different, there is \textbf{selection bias}.
+	\end{tcolorbox}
+
+	\begin{tcolorbox}[width=\textwidth,colback={green!10},title={\textbf{Example: Exercise 27}},colbacktitle={green!10},coltitle=black]
+		Brandon is trying to estimate the proportion of all college students who are physically fit. He obtains a sample of students working out at the gymnasium on Monday night.\\
+
+		The target population is all college students, but the potential population is only the college students working out at the gym on a Monday night. This sampling method is a clear example of selection bias.
+	\end{tcolorbox}
+
+	\subsection{Experimental and Observational Studies}
+
+	\noindent In these studies, the value of a \textbf{predictor variable} is used to try to explain the values of a \textbf{response variable}.
+
+	\begin{tcolorbox}[width=\textwidth,colback={green!10},title={\textbf{Example: Exercise 35}},colbacktitle={green!10},coltitle=black]
+		A sociologist is interested in whether large families (at least four children) attend religious services more often than other families do.\\
+
+		Predictor: the size of the family\\
+
+		Response: attendance at religious services
+	\end{tcolorbox}
+
+	\noindent In an \textbf{experimental study}, the researchers can control the value of the predictor variable.\\
+
+	\noindent In an \textbf{observational study}, the researchers can only observe the value of the predictor variable. With the given example of family size and worship, and for many other areas of study in real life, it is often impractical or unethical to go beyond observational studies.\\
+
+	\noindent In experimental studies, there are often \textbf{treatment} and \textbf{control} groups. The researchers make some purposeful intervention for the treatment group, such as administering the drug under study, but not the control group, which will often be administered a placebo drug.\\
+
+	\noindent In observational studies, there can be \textbf{case} and \textbf{control} groups, where the elements of the case group share some characteristic the researchers wish to study, and the elements of the control group do not have this characteristic.
+
+	\subsection{Important Experimental Concepts}
+
+	\noindent \textbf{Randomization} is the practice of randomly assigning participants in an experiment to either the treatment or the control group. This is done to minimize the chance that the two groups will be significantly different from each other in other ways.\\
+
+	\noindent \textbf{Replication} is the practice of including enough participants in each group of the study so that meaningful differences between the groups can be detected.
+\end{document}
