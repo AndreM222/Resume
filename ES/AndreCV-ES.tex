@@ -1,7 +1,6 @@
-
 \documentclass[10pt, letterpaper]{article}
 \usepackage[
-    pdftitle={Andre Mossi CV (ES)},
+    pdftitle={Andre Mossi CV (EN)},
     pdfauthor={Andre Mossi},
     pdfcreator={LaTeX and NeoVim}
 ]{hyperref}
@@ -18,6 +17,10 @@
 \usepackage{titlesec}
 \titlespacing{\section} {0pt}{-0.1cm}{0cm}
 \titlespacing{\subsection} {0pt}{-0.3cm}{0cm}
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
 
 \pagestyle{empty}
 
@@ -38,18 +41,18 @@
 \end{center}
 
 \begin{Form}
-    \textbf{\section*{RESUMEN}}
+    \section{\textbf{RESUMEN}}
     \normalsize{
         Desarrollador Full-Stack cursando una Licenciatura en Ciencias de la Computación. He desarrollado proyectos
         paralelos, tomado clases en línea y estudiado en la Universidad de Gannon con el objetivo de aumentar mis
         conocimientos.
     }
 
-    \textbf{\section*{EXPERIENCIA LABORAL}}
+    \section{\textbf{EXPERIENCIA LABORAL}}
 
-    \textbf{\subsection*{Dinant, Tegucigalpa, Honduras}}
+    \subsection{\textbf{Dinant, Tegucigalpa, Honduras}}
 
-    \subsubsection*{Desarrollador Full-Stack, Junio-Julio 2023}
+    \subsubsection{Desarrollador Full-Stack, Junio-Julio 2023}
     \begin{itemize}
         \item
             Gestioné una base de datos de miles de clientes utilizando SQL, y se trabaje en una aplicación para
@@ -70,9 +73,9 @@
 
     \end{itemize}
 
-    \textbf{\subsection*{Gannon University, Pennsylvania, Estados Unidos}}
+    \subsection{\textbf{Gannon University, Pennsylvania, Estados Unidos}}
 
-    \subsubsection*{Asistente de Investigación, Presente}
+    \subsubsection{Asistente de Investigación, Presente}
     \begin{itemize}
         \item
             Trabaje con un profesor desarrollando una investigación sobre una simulación de organismos destinada
@@ -84,41 +87,41 @@
             en este caso un juego de las traes.
     \end{itemize}
 
-    \subsubsection*{Assistente de Professor, Presente}
+    \subsubsection{Assistente de Professor, Presente}
     \begin{itemize}
         \item
             Voluntariado para assistente de professor. Responsable de assistir a los estudiantes con aclarar dudas que
             podrian presentarse en la clase.
     \end{itemize}
 
-    \subsubsection*{Técnico Estudiantil, Agosto - Diciembre 2022}
+    \subsubsection{Técnico Estudiantil, Agosto - Diciembre 2022}
     \begin{itemize}
         \item
             Trabajé en el departamento de TI de la universidad. Fui responsable de brindar asistencia en problemas
             relacionados con la tecnología a estudiantes o profesores 5 días a la semana.
     \end{itemize}
 
-    \textbf{\subsection*{Yakiniku Byakutan, Tokyo, Japon}}
+    \subsection{\textbf{Yakiniku Byakutan, Tokyo, Japon}}
 
-    \subsubsection*{Personal, Diciembre 2022}
+    \subsubsection{Personal, Diciembre 2022}
     \begin{itemize}
         \item
             Voluntariado para asistente de cocina. Me encargaba de asegurar que la limpieza del restaurante estuviera conforme
             con los estándares del registro de salud.
     \end{itemize}
 
-    \textbf{\section*{EDUCACIÓN}}
+    \section{\textbf{EDUCACIÓN}}
 
-    \textbf{\subsection*{Gannon University, Pennsylvania, Estados Unidos}}
+    \subsection{\textbf{Gannon University, Pennsylvania, Estados Unidos}}
     Bachelor of Science in Computer Systems Engineering, Presente
 
-    \textbf{\subsection*{Harvard University, En Linea}}
+    \subsection{\textbf{Harvard University, En Linea}}
     CS50’s Introduction to Computer Science, Diciembre 2022
 
-    \textbf{\subsection*{Extreme Networks, En Linea}}
+    \subsection{\textbf{Extreme Networks, En Linea}}
     Introduction to Future Networks, Mayo 2022
 
-    \textbf{\section*{HABILIDADES ADICIONALES}}
+    \section{\textbf{HABILIDADES ADICIONALES}}
     \begin{itemize}
         \item Competente en PowerShell, Bash, and NVIM.
 
@@ -141,7 +144,7 @@
 
     \end{itemize}
 
-    \textbf{\section*{RESUMEN DE CUALIFICACIONES}}
+    \section{\textbf{RESUMEN DE CUALIFICACIONES}}
 
     \begin{itemize}
         \item 3 años de experiencia en Windows PowerShell.
@@ -167,7 +170,7 @@
         \item 3 meses de experiencia desarrollando software en Python.
     \end{itemize}
 
-    \textbf{\section*{PREMIOS Y HONORES}}
+    \section{\textbf{PREMIOS Y HONORES}}
 
     \begin{itemize}
         \item "Premio al Desarrollo Escolar" obtenido por el destacado desarrollo de un videojuego usando Blueprints en Unreal Engine 4, 2020.
