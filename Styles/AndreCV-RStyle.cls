@@ -1,4 +1,3 @@
-% \ProcessOptions\relax % Process given options
 \LoadClass[10pt, letterpaper]{article}
 
 \usepackage{geometry}
