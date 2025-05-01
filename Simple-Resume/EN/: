@@ -1,28 +1,26 @@
 \documentclass{../../Styles/AndreCV-RStyle}
+
 \usepackage[
-    pdftitle={Andre Mossi CV (EN|PIC)},
+    pdftitle={Andre Mossi CV (EN)},
     pdfauthor={Andre Mossi},
     pdfcreator={LaTeX and NeoVim}
 ]{hyperref}
 
-\usepackage{graphicx}
-
 \begin{document}
 
 \begin{center}
-    \textbf{\huge{Roberto (Andre) Mossi Milla}}\\
+	\textbf{\huge{Roberto (Andre) Mossi Milla}}\\
 
-    \vspace{0.3cm}
+	\vspace{0.3cm}
 
-    \small{
-        Erie, Pennsylvania, 16506\\
-        \href{tel:+18147901591}{814-790-1591}\\
-        \href{mailto:mossiroberto0392@gmail.com}{mossiroberto0392@gmail.com}\\
-        \href{https://andremossi-linktree.vercel.app/}{andremossi-linktree.vercel.app}
-    }
-    \vspace{0.5cm}
-
-    \includegraphics{../../Assets/Formal C-3.jpg}
+	\small{
+		\href{https://www.google.com/maps?q=42.127033,-80.088276}{Erie, Pennsylvania, 16506}\\
+		\href{tel:+18147901591}{814-790-1591}\\
+		\href{mailto:mossiroberto0392@gmail.com}{mossiroberto0392@gmail.com}\\
+		\href{https://andremossi-linktree.vercel.app/}{andremossi-linktree.vercel.app}\\
+		\href{https://github.com/AndreM222}{github.com/AndreM222}
+	}
+	\vspace{0.5cm}
 \end{center}
 
 \begin{Form}
@@ -36,7 +34,7 @@
 
 	\textbf{\subsection{Dinant, Tegucigalpa, Honduras}}
 
-	\subsubsection{Full-Stack Developer, June - July 2023}
+	\subsubsection{Full-Stack Developer, June-July 2023}
 	\begin{itemize}
 		\item
 		      Managed databases of thousands of clients’ using SQL, and created an app to visualize and interact
@@ -58,7 +56,7 @@
 
 	\textbf{\subsection{Gannon University, Pennsylvania, United States}}
 
-	\subsubsection{Research Assistant, August 2024 - May 2025}
+	\subsubsection{Research Assistant, Present}
 	\begin{itemize}
 		\item
 		      Working with a professor to develop a research about simulation of organisms meant to emphasize the
@@ -72,7 +70,7 @@
 		      artificial intelligence to study their behavior under a survival assignment, in this case a game of tag.
 
 		\item Paper got accepted, praised, and published by the American Societiy For Engineering Education (ASEE). Also presented
-		      at a conference held by Sigma XI at Penn State Univeristy.
+		      at a conference held by Sigma XI in Penn State Univeristy.
 	\end{itemize}
 
 	\subsubsection{Teacher Assistant, August-December 2024}
