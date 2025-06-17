@@ -56,7 +56,7 @@
 %
 %	ページ毎にページ原点を設定しています。
 %
-%	\def\ROOT@X{0}		% ページ原点X(紙の左端からの距離mm)
+%	\def\ROOT@X{15}		% ページ原点X(紙の左端からの距離mm)
 %	\def\ROOT@Y{0}		% ページ原点Y(紙の上端からの距離mm)
 %
 %	トンボ以外のすべての描画はページ原点を基準に行なわれるので、
@@ -70,7 +70,7 @@
 %
 %	出力の例を次に示します。
 %
-%	\def\ROOT@X{5}
+%	\def\ROOT@X{15}
 %	\def\ROOT@Y{5}
 %	\SetPos(10,10) {
 %		\Put(10,5){\makebox(10,2.5)[l]{文字列}}
@@ -100,7 +100,7 @@
 %----------------------------------------------------------------------------
 \def\width{182}			% ページ幅(B5)
 \def\height{257}		% ページ高(B5)
-\def\ROOT@X{0}			% ページ原点X(紙の左端からの距離mm)
+\def\ROOT@X{15}			% ページ原点X(紙の左端からの距離mm)
 \def\ROOT@Y{0}			% ページ原点Y(紙の上端からの距離mm)
 \topmargin      = -1in
 \oddsidemargin  = -1in
@@ -375,7 +375,7 @@
 \def\写真横{30}
 
 \def\writepages{
-\def\ROOT@X{20}				% 1ページ目の原点
+\def\ROOT@X{15}				% 1ページ目の原点
 \def\ROOT@Y{24}				% 1ページ目の原点
 \学歴職歴リスト編集
 \begin{picture}(\width,\height)		% B5 = (181x257mm)
@@ -498,7 +498,7 @@
 
 \newpage
 
-\def\ROOT@X{12.5}			% 2ページ目の原点
+\def\ROOT@X{15}			% 2ページ目の原点
 \def\ROOT@Y{24}				% 2ページ目の原点
 \begin{picture}(\width,\height)		% B5 = (182x257mm)
 %----------------
@@ -547,7 +547,7 @@
 
 \newpage
 
-\def\ROOT@X{12.5}			% 2ページ目の原点
+\def\ROOT@X{15}			% 2ページ目の原点
 \def\ROOT@Y{24}				% 2ページ目の原点
 \begin{picture}(\width,\height)		% B5 = (182x257mm)
 %----------------
