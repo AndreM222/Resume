@@ -211,6 +211,7 @@
 % 学歴職歴リスト編集
 %
 \def\履歴リスト１行の高さ小{4}
+\def\履歴リスト１行の高さ中小{10}
 \def\履歴リスト１行の高さ中{20}
 \def\履歴リスト１行の高さ大{100}
 \def\職務要約行の高さ{4}
@@ -382,7 +383,7 @@
 		\Add\offset{\numexpr#3 + 15}\offset
 		\Add\offset{-#4}\offset
 		\Put(1,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\parbox{128 mm}{\small \five}}}
-		\Put(134,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \seven}}}
+		\Put(135,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \seven}}}
 		\Add\offset{\numexpr55 + #4}\offset
 	\fi
 	\unless\ifx\four\empty
@@ -410,7 +411,7 @@
 				\else
 					\Put(1,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\parbox{105 mm}{\small \one}}}
 					\Put(114.,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \two}}}
-					\Put(134,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \three}}}
+					\Put(135,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \three}}}
 				\fi\fi\fi
 	\fi
 	\Add\offset{\履歴リスト１行の高さ大}\offset
@@ -475,7 +476,7 @@
 					\relax
 				\else
 					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[l]{\normalsize ＜\one＞}}
-					\Add\offset{16}\offset
+					\Add\offset{14}\offset
 					\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[t]{\parbox{150 mm}{\small \two}}}
 				\fi\fi\fi
 	\fi
@@ -483,13 +484,28 @@
 }
 }
 
-\def\簡易リスト書き出し小#1{
+\def\簡易リスト書き出し小#1#2{
 \newcount\linecount\linecount=0
+\def\right{r}
+\def\center{c}
+\def\space{s}
 \@for\linebuf:=#1\do{
 	\expandafter\単体\linebuf
 	\advance \linecount by 1
-	\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ小)[l]{\parbox{150 mm}{\small ・\one}}}
-	\Add\offset{10}\offset
+	\ifnum\linecount>#2
+		\typeout{[警告] 最大行数を超えているので、印刷できません。(\one)}
+	\else
+		\if\one\right
+			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中小)[r]{\small \one\hspace{20mm}}}
+		\else\if\one\center
+				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中小)[c]{\small \p\one\hspace{20mm}}}
+			\else\if\one\space
+					\relax
+				\else
+					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中小)[l]{\parbox{150 mm}{\small •\one}}}
+				\fi\fi\fi
+	\fi
+	\Add\offset{\履歴リスト１行の高さ中小}\offset
 }
 }
 
@@ -573,8 +589,8 @@
 		\def\枠の高さ{152}
 		\def\見出しの高さ{6}
 		\Put(0,\見出しの高さ){\makebox(17,\見出しの高さ)[l]{\rule{1.5ex}{1.5ex} 活かせる経験・知識・技術}}
-		\Add{8}{\履歴リスト１行の高さ小}{\offset}
-		\簡易リスト書き出し小\@経験リスト
+		\Add{6}{\履歴リスト１行の高さ中小}{\offset}
+		\簡易リスト書き出し小\@経験リスト{4}
 		}
 		%----------------
 		% 学歴職歴
@@ -584,7 +600,7 @@
 		\SetPos(0,95) {
 		\def\枠の高さ{152}
 		\def\見出しの高さ{6}
-		\Put(0,0){\makebox(17,\見出しの高さ)[l]{\rule{1.5ex}{1.5ex} 職務要約}}
+		\Put(0,0){\makebox(17,\見出しの高さ)[l]{\rule{1.5ex}{1.5ex} 職務経歴}}
 		\ThickBox(\枠の幅,120)
 		\Put(108,70){\line(0,-1){50}}
 		\Put(130,5){\line(0,-1){115}}
@@ -692,7 +708,7 @@
 		\項目リスト書き出し\@資格リスト{3}
 		}
 
-		\SetPos(0,130) {
+		\SetPos(0,124) {
 		\def\枠の高さ{75}
 		\def\見出しの高さ{6}
 		\Put(0,0){\makebox(17,\見出しの高さ)[l]{\rule{1.5ex}{1.5ex} 自己PR}}
