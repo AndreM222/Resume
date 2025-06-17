@@ -451,7 +451,7 @@
 \@for\linebuf:=#1\do{
 	\expandafter\単体\linebuf
 	\advance \linecount by 1
-    \Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[t]{\parbox{150 mm}{\small \one}}}
+	\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[t]{\parbox{150 mm}{\small \one}}}
 	\Add\offset{\履歴リスト１行の高さ中}\offset
 }
 }
@@ -476,7 +476,7 @@
 				\else
 					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[l]{\normalsize ＜\one＞}}
 					\Add\offset{16}\offset
-                    \Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[t]{\parbox{150 mm}{\small \two}}}
+					\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[t]{\parbox{150 mm}{\small \two}}}
 				\fi\fi\fi
 	\fi
 	\Add\offset{\履歴リスト１行の高さ中}\offset
@@ -523,17 +523,6 @@
 \def\自己PR#1#2{\追加\@自己PRリスト{#1:#2:}}
 \def\職務要約#1{\追加\@職務要約リスト{#1:}}
 \def\経験#1{\追加\@経験リスト{#1:}}
-%
-% 保護者
-%
-\def\@保護者住所読み{}				% 旧版との互換性のため
-\def\保護者氏名#1{\def\@保護者氏名{#1}}
-\def\保護者郵便番号#1{\def\@保護者郵便番号{#1}}
-\def\保護者住所#1{\def\@保護者住所{#1}}
-\def\保護者住所読み#1{\def\@保護者住所読み{#1}}
-\def\保護者市外局番#1{\def\@保護者市外局番{#1}}
-\def\保護者電話番号#1{\def\@保護者電話番号{#1}}
-\def\保護者呼び出し#1{\def\@保護者呼び出し{#1}}
 %----------------------------------------------------------------------------
 %
 % 書き出しページの内容
@@ -544,10 +533,7 @@
 %
 \def\枠の幅{149.5}
 \def\名前欄の幅{149.5}
-\def\住所欄の幅{117}
 \def\ふりがな欄の高さ{5}
-\def\性別欄の高さ{12}
-\def\性別欄の幅{12}
 
 \def\writepages{
 	\def\ROOT@X{12.5}				% 1ページ目の原点
@@ -558,14 +544,21 @@
 		% 氏名住所
 		%----------------
 		% 大枠
-		\Sub{\名前欄の幅}{\性別欄の幅}{\性別欄の書き出し位置}
 		\SetPos(0,0) {
 		\def\枠の高さ{66.5}
 		\Put(0,-1){\makebox(\名前欄の幅,5)[m]{\Large 職\hspace{2mm}務\hspace{2mm}経\hspace{2mm}歴\hspace{2mm}書}}
 		}
 		\SetPos(0,0) {
 			\Put(0,5){\makebox(\名前欄の幅,7)[r]{\scriptsize \@現在日付 現在}}
-			\Put(0,5){\makebox(\名前欄の幅,0)[r]{\underline{\scriptsize 氏名 \@姓\hspace{2mm}\@名}}}
+			\ifx\@姓\empty
+				\ifx\@名\empty
+					\Put(0,5){\makebox(\名前欄の幅,0)[r]{\underline{\scriptsize 氏名 \hspace{40mm}}}}
+				\else
+					\Put(0,5){\makebox(\名前欄の幅,0)[r]{\underline{\scriptsize 氏名 \@姓\hspace{2mm}\@名}}}
+				\fi
+			\else
+				\Put(0,5){\makebox(\名前欄の幅,0)[r]{\underline{\scriptsize 氏名\hspace{3mm}\@姓\hspace{2mm}\@名}}}
+			\fi
 		}
 
 		\SetPos(0,10) {
