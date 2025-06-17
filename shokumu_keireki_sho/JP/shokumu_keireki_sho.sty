@@ -252,7 +252,7 @@
 \def\学歴職歴リスト編集{
 \ifx\@学歴リスト\empty\else
 	% \リスト振り分け{c:0:学歴:}
-	\@for\linebuf:=\@学歴リスト\do{%
+	\@for\linebuf:=\@学歴リスト\do{
 		\リスト振り分け\linebuf
 	}
 \fi
@@ -263,7 +263,7 @@
 \fi
 \fi
 % \リスト振り分け{c:0:職歴:}
-\@for\linebuf:=\@職歴リスト\do{%
+\@for\linebuf:=\@職歴リスト\do{
 	\リスト振り分け\linebuf
 }
 \fi
@@ -271,7 +271,7 @@
 \def\資格リスト編集{
 \ifx\@学歴リスト\empty\else
 	% \リスト振り分け{c:0:学歴:}
-	\@for\linebuf:=\@学歴リスト\do{%
+	\@for\linebuf:=\@学歴リスト\do{
 		\リスト振り分け\linebuf
 	}
 \fi
@@ -282,7 +282,7 @@
 \fi
 \fi
 % \リスト振り分け{c:0:職歴:}
-\@for\linebuf:=\@職歴リスト\do{%
+\@for\linebuf:=\@職歴リスト\do{
 	\リスト振り分け\linebuf
 }
 \fi
@@ -290,7 +290,7 @@
 \def\自己PRリスト編集{
 \ifx\@学歴リスト\empty\else
 	% \リスト振り分け{c:0:学歴:}
-	\@for\linebuf:=\@学歴リスト\do{%
+	\@for\linebuf:=\@学歴リスト\do{
 		\リスト振り分け\linebuf
 	}
 \fi
@@ -301,7 +301,7 @@
 \fi
 \fi
 % \リスト振り分け{c:0:職歴:}
-\@for\linebuf:=\@職歴リスト\do{%
+\@for\linebuf:=\@職歴リスト\do{
 	\リスト振り分け\linebuf
 }
 \fi
@@ -309,7 +309,7 @@
 \def\テクニカルスキルリスト編集{
 \ifx\@学歴リスト\empty\else
 	% \リスト振り分け{c:0:学歴:}
-	\@for\linebuf:=\@学歴リスト\do{%
+	\@for\linebuf:=\@学歴リスト\do{
 		\リスト振り分け\linebuf
 	}
 \fi
@@ -320,7 +320,7 @@
 \fi
 \fi
 % \リスト振り分け{c:0:職歴:}
-\@for\linebuf:=\@職歴リスト\do{%
+\@for\linebuf:=\@職歴リスト\do{
 	\リスト振り分け\linebuf
 }
 \fi
@@ -479,7 +479,7 @@
 \def\right{r}
 \def\center{c}
 \def\space{s}
-\@for\linebuf:=#1\do{%
+\@for\linebuf:=#1\do{
 	\expandafter\分割\linebuf
 	\advance \linecount by 1
 	\ifnum\linecount>#2
@@ -508,7 +508,6 @@
 \@for\linebuf:=#1\do{
 	\expandafter\単体\linebuf
 	\advance \linecount by 1
-	% \Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[l]{\parbox{150 mm}{\small \one}}}
     \Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[t]{\parbox{150 mm}{\small \one}}}
 	\Add\offset{\履歴リスト１行の高さ中}\offset
 }
@@ -519,7 +518,7 @@
 \def\right{r}
 \def\center{c}
 \def\space{s}
-\@for\linebuf:=#1\do{%
+\@for\linebuf:=#1\do{
 	\expandafter\分割\linebuf
 	\advance \linecount by 1
 	\ifnum\linecount>#2
