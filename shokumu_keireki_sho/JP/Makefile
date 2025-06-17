@@ -23,18 +23,18 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-TARGET = rireki.pdf
+TARGET = shokumu_keireki_sho.pdf
 LATEX = uplatex
 #LATEX = lualatex
 
 all: $(TARGET)
 
-$(TARGET): rireki.tex rireki.sty
+$(TARGET): shokumu_keireki_sho.tex shokumu_keireki_sho.sty
 ifeq ($(LATEX),lualatex)
-	$(LATEX) rireki
+	$(LATEX) shokumu_keireki_sho
 else
-	$(LATEX) rireki
-	dvipdfmx -p jisb5 rireki.dvi
+	$(LATEX) shokumu_keireki_sho
+	dvipdfmx -p jisb5 shokumu_keireki_sho.dvi
 endif
 view: $(TARGET)
 	open $(TARGET)
