@@ -321,46 +321,6 @@
 }
 }
 
-\def\リスト書き出し資格#1#2{% 使用前に、\offset の初期化が必要です。
-\newcount\linecount\linecount=0
-\def\right{r}
-\def\center{c}
-\def\space{s}
-\@for\linebuf:=#1\do{%
-	\expandafter\分解三\linebuf
-	\advance \linecount by 1
-	\unless\ifx\one\empty
-		\unless\ifnum\pdfstrcmp{\one}{\スキルチーム}=0
-			\Add\offset{-1}\offset
-			\Put(0,\offset){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){\枠の幅}}}
-			\Add\offset{1}\offset
-			\Put(1,\offset){\makebox(17,\職務要約行の高さ)[l]{\small \one}}
-			\edef\スキルチーム{\one}
-		\fi
-	\fi
-
-	\ifnum\linecount>#2
-		\typeout{[警告] 最大行数を超えているので、印刷できません。(\four)}
-	\else
-		\if\one\right
-			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[r]{\small \four\hspace{20mm}}}
-		\else\if\one\center
-				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ中)[c]{\small \four\hspace{20mm}}}
-			\else\if\one\space
-					\relax
-				\else
-					\Put(26,\offset){\makebox(17,\職務要約行の高さ)[l]{\small \two}}
-					\Put(74,\offset){\makebox(8,\職務要約行の高さ)[c]{\small \three}}
-					\Put(84,\offset){\makebox(\履歴説明幅,\職務要約行の高さ)[l]{\small \hspace{5mm}\four}}
-					\Add\offset{3}\offset
-					\Put(25,\offset){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){124.5}}}
-					\Add\offset{-3}\offset
-				\fi\fi\fi
-	\fi
-	\Add\offset{\職務要約行の高さ}\offset
-}
-}
-
 \def\リスト書き出し#1#2#3#4{% 使用前に、\offset の初期化が必要です。
 \newcount\linecount\linecount=0
 \def\right{r}
