@@ -214,6 +214,7 @@
 \def\履歴リスト１行の高さ中小{10}
 \def\履歴リスト１行の高さ中{20}
 \def\履歴リスト１行の高さ大{100}
+\def\履歴リスト１行の高さデスクリプション{56}
 \def\職務要約行の高さ{4}
 \def\履歴リスト一番行数{1}
 \def\履歴リスト二番行数{2}
@@ -321,7 +322,7 @@
 }
 }
 
-\def\リスト書き出し#1#2#3#4{% 使用前に、\offset の初期化が必要です。
+\def\リスト書き出し#1#2#3#4#5{% 使用前に、\offset の初期化が必要です。
 \newcount\linecount\linecount=0
 \def\right{r}
 \def\center{c}
@@ -334,21 +335,18 @@
 		\Add\offset{-4.5}\offset
 		\linethickness{2pt}
 		\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\line(1,0){\枠の幅}}}
-		\linethickness{2pt}
-		\Add\offset{2.5}\offset
+		\Add\offset{2}\offset
 		\Put(1,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\scriptsize\textbf \six}}
 		\Add\offset{2}\offset
 		\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\line(1,0){\枠の幅}}}
+        \Add\offset{7}\offset
 		\linethickness{0.4pt}
-		\Add\offset{\numexpr#3 + 15}\offset
-		\Add\offset{-#4}\offset
-		\Put(1,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\parbox{128 mm}{\small \five}}}
-		\Put(135,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \seven}}}
-		\Add\offset{\numexpr55 + #4}\offset
+		\Put(2,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さデスクリプション)[t]{\parbox{125 mm}{\small \five}}}
+		\Put(135,\offset){\makebox(8,\履歴リスト１行の高さデスクリプション)[c]{\parbox{18 mm}{\small\centering \seven}}}
+		\Add\offset{\履歴リスト１行の高さデスクリプション}\offset
 	\fi
 	\unless\ifx\four\empty
-		\Add\offset{-#3}\offset
-		\Add\offset{-4.5}\offset
+		\Add\offset{-2.5}\offset
 		\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\line(1,0){\枠の幅}}}
 		\Add\offset{2.5}\offset
 		\Put(1,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\scriptsize \four}}
@@ -356,8 +354,10 @@
 		\Put(17,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[r]{\scriptsize 規模}}
 		\Add\offset{2}\offset
 		\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\line(1,0){\枠の幅}}}
-		\Add\offset{\numexpr#3 + 5}\offset
+		\Add\offset{25}\offset
 	\fi
+
+    \Add\offset{26}\offset
 	\advance \linecount by 1
 	\ifnum\linecount>#2
 		\typeout{[警告] 最大行数を超えているので、印刷できません。(\three)}
@@ -369,12 +369,13 @@
 			\else\if\one\space
 					\relax
 				\else
-					\Put(1,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[l]{\parbox{105 mm}{\small \one}}}
-					\Put(114.,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \two}}}
-					\Put(135,\offset){\makebox(8,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \three}}}
+					\Put(-8,\offset){\makebox(\履歴説明幅,\履歴リスト１行の高さ大)[t]{\parbox{105 mm}{\small \one}}}
+                    \Add\offset{#4}\offset
+					\Put(109.,\offset){\makebox(18,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \two}}}
+					\Put(130.5,\offset){\makebox(18,\履歴リスト１行の高さ大)[c]{\parbox{18 mm}{\small\centering \three}}}
 				\fi\fi\fi
 	\fi
-	\Add\offset{\履歴リスト１行の高さ大}\offset
+	\Add\offset{\numexpr\履歴リスト１行の高さ大+#5}\offset
 }
 }
 
@@ -562,10 +563,10 @@
 		\def\見出しの高さ{6}
 		\Put(0,0){\makebox(17,\見出しの高さ)[l]{\rule{1.5ex}{1.5ex} 職務経歴}}
 		\ThickBox(\枠の幅,120)
-		\Put(108,70){\line(0,-1){50}}
-		\Put(130,5){\line(0,-1){115}}
+		\Put(108,64.5){\line(0,-1){55.5}}
+		\Put(130,4){\line(0,-1){116}}
 		\Add{-28.5}{\履歴リスト１行の高さ大}{\offset}
-		\リスト書き出し\@履歴リスト一番\履歴リスト一番行数{17}{0}
+        \リスト書き出し\@履歴リスト一番\履歴リスト一番行数{17}{-28}{0}
 		}
 
 		\SetPos(0,220) {
@@ -592,7 +593,7 @@
 		\Put(108,0){\line(0,-1){200}}
 		\Put(130,0){\line(0,-1){200}}
 		\Add{-25}{\履歴リスト１行の高さ大}{\offset}
-		\リスト書き出し\@履歴リスト二番\履歴リスト二番行数{50}{0}
+        \リスト書き出し\@履歴リスト二番\履歴リスト二番行数{50}{-20}{-60}
 		}
 
 		\SetPos(0,220) {
@@ -619,7 +620,7 @@
 		\Put(108,70){\line(0,-1){100}}
 		\Put(130,5){\line(0,-1){165}}
 		\Add{-3.5}{\履歴リスト１行の高さ大}{\offset}
-		\リスト書き出し\@履歴リスト三番\履歴リスト三番行数{42}{40}
+        \リスト書き出し\@履歴リスト三番\履歴リスト三番行数{42}{0}{0}
 		}
 
 		\SetPos(0,220) {
@@ -662,7 +663,7 @@
 		\def\枠の高さ{75}
 		\def\見出しの高さ{6}
 		\Put(0,0){\makebox(17,\見出しの高さ)[l]{\rule{1.5ex}{1.5ex} 資格}}
-		\ThickBox(\枠の幅,12.5)
+		\ThickBox(\枠の幅,12.6)
 		\Put(29,0){\line(0,-1){12.5}}
 		\def\offset{4.5}
 		\項目リスト書き出し\@資格リスト{3}
