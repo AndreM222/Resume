@@ -1,0 +1,152 @@
+% Copyright (c) 1996, 2004, 2006, 2009, 2014, 2016, 2019, 2023
+% Tama Communications Corporation. All rights reserved.
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
+% are met:
+% 1. Redistributions of source code must retain the above copyright
+%    notice, this list of conditions and the following disclaimer.
+% 2. Redistributions in binary form must reproduce the above copyright
+%    notice, this list of conditions and the following disclaimer in the
+%    documentation and/or other materials provided with the distribution.
+%
+% THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+% ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+% IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+% ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+% FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+% DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+% OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+% HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+% OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+% SUCH DAMAGE.
+%
+%	rireki.tex	Version 3.1
+%
+%	URL: https://www.tamacom.com/rireki-j.html
+%
+%----------------------------------------------------------------------------
+%
+% 多摩通信社からのお知らせ
+%
+% 「履歴書猿人」(https://www.tamacom.com/engine/rireki2/) という履歴書作成のための
+% Webアプリケーションを公開しております。TeX の知識なしにTeX の履歴書が作成でき、
+% 様々なカスタマイズも可能です。こちらもご利用いただけると幸いです。
+
+%----------------------------------------------------------------------------
+\newif\iflualatex
+% lualatex を使用するには \lualatextrue を有効にしてください
+%\lualatextrue
+%
+% ヘッダー
+%
+\iflualatex
+\documentclass[b5j]{ltjsarticle}
+\usepackage[deluxe,nfssonly]{luatexja-preset}
+\usepackage{graphicx}
+\else
+\documentclass[uplatex,b5j]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\fi
+\usepackage{rireki}
+
+\usepackage{datetime2}
+\usepackage[
+    pdftitle={履歴書},
+    pdfauthor={アンドレ・モッシ},
+    pdfcreator={LaTeXとNeoVim}
+]{hyperref}
+
+% オプション
+%
+% 下記のオプションが利用可能です。
+
+\空行挿入		% 学歴と職歴の間に空行を挿入します
+%\性別欄なし		% 性別欄を削除します
+%\写真欄なし		% 写真欄を削除します
+\begin{document}
+
+% ID情報
+
+\姓{\LARGE Mossi Milla}
+\名{\LARGE Roberto Andre}
+\姓読み{ろばーと　あのどれ}
+\名読み{もっし　みら}
+\性別{男}					% 男|女
+\誕生日{2002年5月27日}
+\現在日付{\the\year 年\the\month 月\the\day 日}
+\年齢{\number\numexpr\the\year - 2002\relax}
+
+% 顔写真
+%
+% 画像ファイルにはEPS フォーマット・縦横比4:3 のものをご使用ください。
+% 縦を4cm に調整し、縦横比を変更せずに印刷します。
+% 次のように指定します。
+% \顔写真{photo.jpg}
+
+\顔写真{./Assets/Formal-C-3.jpg}
+
+% 現住所
+
+\現住所郵便番号{16541}
+\現住所{109 university square エリー、ペンシルベニア州}
+\現住所読み{ゆにばーしてぃ　すくえあ　えりー　ぺんしるばにあ}
+\現住所市外局番{}
+\現住所電話番号{}
+\現住所呼び出し{}
+
+% 連絡先
+
+\連絡先郵便番号{}
+\連絡先{\tt mossiroberto0392@gmail.com}
+\連絡先読み{}
+\連絡先市外局番{}
+\連絡先電話番号{+1 814-790-1591}
+\連絡先呼び出し{}
+
+% 学歴、職歴
+%
+% 学歴、職歴を年月順に列挙してください。合計20個まで記入出来ます。
+% 20個を超える部分は印刷されませんので、ご注意ください。
+% 印刷順は、学歴=>職歴の順になります。
+
+\学歴{2015}{4}{Dowal School　入学}      % {年}{月}{内容}
+\学歴{2020}{3}{Dowal School　卒業}
+\学歴{2021}{8}{Gannon University Computer Science 入学}
+\学歴{2025}{5}{Gannon University Computer Science 卒業予定}
+
+\職歴{2023}{6}{Dinant Company インターン入社}            % {取得年}{取得月}{資格}
+\職歴{2023}{7}{Dinant Company インターン退社}
+
+% 資格
+%
+% 資格を取得年月順に列挙してください。9つまで記入できます。
+% 9つを超える部分は印刷されませんので、ご注意ください。
+
+\資格{2023}{8}{ホンジュラスの運転免許証}            % {取得年}{取得月}{資格}
+\資格{2022}{12}{ハーバード大学 CS50's Introduction to Computer Science}
+\資格{2022}{5}{エクストリームネットワークス Introduction to Future Networks}
+
+% 個人情報
+%
+% 志望の動機と本人希望記入欄はlatex のコマンドを記述できます。
+
+\志望の動機{ }
+\本人希望記入欄{
+    \begin{itemize}
+        \item \textbf{ポートフォリオウェブサイト} https://andremossi.vercel.app/ \\
+            私のストーリーや、私が開発したプロジェクトや、キャリアに関連する仕事の情報を含むウェブサイトです。
+
+        \item \textbf{リンクツリーウェブサイト} https://andremossi-linktree.vercel.app/ \\
+            私のソーシャルメディアアカウントへのリンクが含まれているリンクツリーウェブサイトです。
+
+        \item \textbf{Github} https://github.com/AndreM222 \\
+            私のプロジェクトのコードを公開しています。
+
+\end{itemize}
+}
+
+\サイン{Roberto Andre Mossi Milla}
+
+\end{document}
