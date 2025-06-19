@@ -197,7 +197,7 @@
 %
 \def\履歴リスト行高さ小{4}
 \def\履歴リスト行高さ中小{10}
-\def\履歴リスト行高さ中{20}
+\def\履歴リスト行高さ中{15}
 \def\履歴リスト行高さ大{56}
 \def\履歴行高さ特大{100}
 \def\履歴リスト一上限{1}
@@ -271,7 +271,7 @@
 }
 }
 
-\def\職務経歴出力#1#2#3#4#5{
+\def\職務経歴出力#1#2#3#4#5#6{
 \newcount\linecount\linecount=0
 \def\right{r}
 \def\center{c}
@@ -291,8 +291,8 @@
 		\Add\offset{7}\offset
 		\linethickness{0.4pt}
 		\Put(2,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ大)[t]{\parbox{125 mm}{\small \two}}}
-		\Put(135,\offset){\makebox(8,\履歴リスト行高さ大)[c]{\parbox{18 mm}{\small\centering \three}}}
-		\Add\offset{\履歴リスト行高さ大}\offset
+		\Put(135,\offset){\makebox(8,\numexpr\履歴リスト行高さ大 - #6)[c]{\parbox{18 mm}{\small\centering \three}}}
+		\Add\offset{\numexpr\履歴リスト行高さ大 + #6}\offset
 	\fi
 	\unless\ifx\four\empty
 		\Add\offset{-2.5}\offset
@@ -385,8 +385,8 @@
 			\else\if\one\space
 					\relax
 				\else
-					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[l]{\normalsize \textless\one\textgreater}}
-					\Add\offset{14}\offset
+					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ小)[l]{\normalsize \textless\one\textgreater}}
+                    \Add\offset{\numexpr\履歴リスト行高さ中+1}\offset
 					\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[t]{\parbox{150 mm}{\small \two}}}
 				\fi\fi\fi
 	\fi
@@ -528,11 +528,12 @@
 		\def\環境欄上下調整{-28}
 		\def\職務間スペース調整{0}
 		\タイトル{職務経歴}{0}
+        \def\企業情報ブロックスペース調整{0}
 		\ThickBox(\枠の幅,\枠の高さ)
 		\Put(108,64.5){\line(0,-1){55.5}}
 		\Put(130,4){\line(0,-1){116}}
 		\Add{-28.5}{\履歴行高さ特大}{\offset}
-		\職務経歴出力\@履歴リスト第一群\履歴リスト一上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整
+		\職務経歴出力\@履歴リスト第一群\履歴リスト一上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
 		}
 
 		%----------------
@@ -557,11 +558,12 @@
 		\def\企業情報ブロック縦位置{0}
 		\def\環境欄上下調整{-20}
 		\def\職務間スペース調整{-60}
+        \def\企業情報ブロックスペース調整{0}
 		\ThickBox(\枠の幅,\枠の高さ)
 		\Put(108,0){\line(0,-1){200}}
 		\Put(130,0){\line(0,-1){200}}
 		\Add{-25}{\履歴行高さ特大}{\offset}
-		\職務経歴出力\@履歴リスト第二群\履歴リスト二上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整
+		\職務経歴出力\@履歴リスト第二群\履歴リスト二上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
 		}
 
 		%----------------
@@ -585,11 +587,12 @@
 		\def\企業情報ブロック縦位置{42}
 		\def\環境欄上下調整{0}
 		\def\職務間スペース調整{0}
+        \def\企業情報ブロックスペース調整{0}
 		\ThickBox(\枠の幅,\枠の高さ)
 		\Put(108,64.5){\line(0,-1){105.5}}
 		\Put(130,4.3){\line(0,-1){165.7}}
 		\Add{-3.5}{\履歴行高さ特大}{\offset}
-		\職務経歴出力\@履歴リスト第三群\履歴リスト三上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整
+		\職務経歴出力\@履歴リスト第三群\履歴リスト三上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
 		}
 
 		%----------------
@@ -648,9 +651,8 @@
 		\def\見出しの高さ{6}
 		\def\自己PR件数{2}
 		\タイトル{自己PR}{0}
-		\def\offset{12}
+		\def\offset{4}
 		\自己PR出力\@自己PRリスト\自己PR件数
-		\Add\offset{-10}\offset
 		\Put(\枠の幅,\offset){\makebox(17,0)[l]{以上}}
 		}
 
