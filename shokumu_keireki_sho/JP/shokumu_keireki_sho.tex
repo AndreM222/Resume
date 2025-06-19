@@ -1,3 +1,4 @@
+%! TeX program = lualatex
 % Copyright (c) 2025
 % Tama Communications Corporation. All rights reserved.
 %
@@ -25,20 +26,12 @@
 %	shokumu_keireki_sho.tex	Version 1
 %
 %	URL: https://github.com/AndreM222/Resume
-\newif\iflualatex
-% lualatex を使用するには \lualatextrue を有効にしてください
-%\lualatextrue
 %
 % ヘッダー
 %
-\iflualatex
-    \documentclass[b5j]{ltjsarticle}
-    \usepackage[deluxe,nfssonly]{luatexja-preset}
-    \usepackage{graphicx}
-\else
-    \documentclass[uplatex,b5j]{jsarticle}
-    \usepackage[dvipdfmx]{graphicx}
-\fi
+\documentclass[b5j]{ltjsarticle}
+\usepackage[deluxe,nfssonly]{luatexja-preset}
+\usepackage{pdftexcmds}
 \usepackage{lastpage}
 \usepackage{shokumu_keireki_sho}
 \usepackage{xcolor}
@@ -47,7 +40,6 @@
 \usepackage[
 pdftitle={職務経歴書},
 pdfauthor={アンドレ・モッシ},
-pdfcreator={LaTeXとNeoVim}
 ]{hyperref}
 
 \begin{document}

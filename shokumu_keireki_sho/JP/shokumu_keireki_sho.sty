@@ -240,7 +240,7 @@
 	\expandafter\分解四\linebuf
 	\advance \linecount by 1
 	\unless\ifx\one\empty
-		\unless\ifnum\pdfstrcmp{\one}{\現在のスキル分類}=0
+		\unless\ifnum\pdf@strcmp{\one}{\現在のスキル分類}=0
 			\Add\offset{-1}\offset
 			\Put(0,\offset){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){\枠の幅}}}
 			\Add\offset{1}\offset
@@ -385,7 +385,7 @@
 			\else\if\one\space
 					\relax
 				\else
-					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[l]{\normalsize ＜\one＞}}
+					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[l]{\normalsize \textless\one\textgreater}}
 					\Add\offset{14}\offset
 					\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[t]{\parbox{150 mm}{\small \two}}}
 				\fi\fi\fi
@@ -412,7 +412,7 @@
 			\else\if\one\space
 					\relax
 				\else
-					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中小)[l]{\parbox{150 mm}{\small •\hspace{1mm}\one}}}
+					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中小)[l]{\parbox{150 mm}{\small •\hspace{0.5 mm}\one}}}
 				\fi\fi\fi
 	\fi
 	\Add\offset{\履歴リスト行高さ中小}\offset
@@ -432,7 +432,7 @@
 \def\ページ番号{
 \SetPos(0,220) {
 \def\見出しの高さ{5}
-\Put(86,\見出しの高さ){\makebox(76,\見出しの高さ)[r]{\small \thepage /\pageref{LastPage}}}
+\Put(86,\見出しの高さ){\makebox(76,\見出しの高さ)[r]{\small \thepage \slash \pageref*{LastPage}}}
 }
 }
 
