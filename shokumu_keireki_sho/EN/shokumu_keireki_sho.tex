@@ -1,0 +1,332 @@
+%! TeX program = lualatex
+% Copyright (c) 2025
+% Tama Communications Corporation. All rights reserved.
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
+% are met:
+% 1. Redistributions of source code must retain the above copyright
+%    notice, this list of conditions and the following disclaimer.
+% 2. Redistributions in binary form must reproduce the above copyright
+%    notice, this list of conditions and the following disclaimer in the
+%    documentation and/or other materials provided with the distribution.
+%
+% THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+% ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+% IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+% ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+% FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+% DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+% OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+% HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+% OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+% SUCH DAMAGE.
+%
+%	shokumu_keireki_sho.tex	Version 1
+%
+%	URL: https://github.com/AndreM222/Resume
+%
+% ヘッダー
+%
+\documentclass[b5j]{ltjsarticle}
+\usepackage[deluxe,nfssonly]{luatexja-preset}
+\usepackage{pdftexcmds}
+\usepackage{lastpage}
+\usepackage{shokumu_keireki_sho}
+\usepackage{xcolor}
+
+\usepackage{datetime2}
+\usepackage[
+pdftitle={職務経歴書},
+pdfauthor={アンドレ・モッシ},
+]{hyperref}
+
+\begin{document}
+
+% ID情報
+%
+% 氏名と現在日付などの個人情報を記入するセクションです。
+
+\姓{Mossi Milla}
+\名{Roberto Andre}
+\現在日付{\the\year 年\the\month 月\the\day 日}
+
+% 職務要約
+%
+% 自身の職務経験を要約して記入するセクションです。
+% 通常は主な職歴ごとに1件ずつ記述しますが、必要に応じて複数記入も可能です。
+\newcommand{\mycomma}{{,}\ }
+\newcommand{\mycollons}{{:}\ }
+\職務要約{
+    After joining my intern at Dinant. I worked as a full-stack developer for 2 months crating web
+    applications\mycomma managing databases\mycomma planning projects\mycomma and selling products to various companies
+    that Dinant works with. I used agile development methodology to develop projects which met all
+    the stakeholders current and future requirements. By working as a manager on multiple projects\mycomma
+    I gained knowledge as a product manager\mycomma database manager\mycomma front-end\mycomma and back-end developer.
+}
+
+% 活かせる経験・知識・技術
+%
+% プロジェクトを通じて得た知識・経験・技術などを記入するセクションです。
+% 必要に応じて複数行（複数回）記述可能です。
+
+\活かせる経験{
+    I learned how to be a product manager by scheduling meetings with stakeholders to listen to their
+    concerns so after the meeting I would plan and make web applications meant to assist them.
+}
+
+\活かせる経験{
+    Developed web applications both for companies and personal projects using NextJS\mycomma Vite\mycomma Apex-Oracle\mycomma
+    OracleDB\mycomma JavaScript\mycomma React\mycomma HTML\mycomma and CSS.
+}
+
+\活かせる経験{
+    Acquired data science skills by managing databases with Oracle and making predictions through data
+    visualization using Power BI.
+}
+
+\活かせる経験{
+    I developed my business knowledge by pitching products to the stakeholders and convincing them that
+    our products meet their current and future needs.
+}
+
+% 職務経歴
+%
+% 学歴・職歴・プロジェクト経験などを記述するセクションです。
+% 「職務経歴」マクロを繰り返すことで複数プロジェクトを記入可能です。
+% 最大件数や印刷制限は定義に応じて変更可能です。
+
+\職務経歴{2023年6月～2023年7月　　Dinant会社}{
+    事業内容： Food Manufacturing\mycollons Manufacturing of snacks\mycomma edible oils\mycomma food products\mycomma etc.
+    Agricultural Operations\mycollons Agricultural activities like palm oil production.
+    Consumer Product Manufacturing\mycollons Manufacturing of personal and household products such as soaps and cleaning agents.
+    Brands\mycollons The company manages brands like Mazola (edible oils)\mycomma Yumitos (Snacks)\mycomma and more.\\
+    資本金：Undisclosed\\
+    売上高：Specific revenue figures have not been disclosed\mycomma but the following economic impacts have been
+    reported for the period of 2021-2022：\\
+    ・賃金：\$80 million\\
+    ・地元のパーム生産者への支払い：\$120 million\\
+    ・地元のプランテン生産者への支払い：\$24 million\\
+    ・所得税：\$8 million\\
+    ・輸出額：\$340 million\\
+    ・従業員数：Approximately 7860\\
+    上場：Unlisted Company
+}{
+    Worked As\\
+    Intern
+}{2023年6月～2023年7月／Legal Document Generator and Stock Management}{
+    【プロジェクト概要】\\
+    I developed a. legal document generator tool to help companies create new contracts through
+    the web application with their business partners. When the client wanted to take or return
+    a device from the company\mycomma then they required to make custom documents and sign them in person
+    for liability\mycomma but this process took a lot of time to process and search through the inventory.
+    So for this I developed a web application which both can create documents custom to their needs\mycomma
+    sign them\mycomma and as well keeps track of both the clients and products history for future reference.
+}{
+    【ツール】\\
+    Power BI\\
+    【言語】\\
+    HTML\\
+    CSS\\
+    Oracle\\
+    Apex\\
+    JavaScript
+}{
+    3 Persons\\
+    Leader
+}
+\職務経歴{}{}{}{}{
+    【担当フェーズ】\\
+    ・Requirements Definition\\
+    ・Planning\\
+    ・Designing\\
+    ・Development\\
+    ・Integration Testing\\
+    ・Operation and Maintenance\\
+    【業務内容】\\
+    ・Data Collection\\
+    ・Planning\\
+    ・Design\\
+    ・Development\\
+    ・Stakeholder Meetings\\
+    ・Idea Proposal and Sales\\
+    ・Implementation and Deployment\\
+    ・Data Visualization\\
+    【実績・取り組み】\\
+    ・Independently developed a large-scale project for a stakeholder and acquired skills in various
+    areas withing the company.\\
+    ・I designed flexible and maintainable code to be able to respond to new needs that may arise in the future.
+}{
+    【OS】\\
+    Windows\\
+    【DB】\\
+    Oracle
+}{}
+
+\職務経歴{}{}{}{2023年6月～2023年7月／Product Overseer}{
+    【プロジェクト概要】\\
+    Worked with overseas stakeholders to develop a web application that allows various departments within their company to share information about the operating status\mycomma and condition of products and machines.\\
+    【担当フェーズ】\\
+    ・Requirements definition\\
+    ・Basic Design\\
+    ・Detailed Design\\
+    ・Development\\
+    ・Integration Testing\\
+    ・Operation and Maintenance\\
+    【業務内容】\\
+    ・Data Collection\\
+    ・Planning\\
+    ・Design\\
+    ・Development\\
+    ・Business trips and Meeting with Clients\\
+    ・Idea Proposals and Sales\\
+    ・Implementation\\
+    ・Data Visualization
+}{
+    【ツール】\\
+    Power BI\\
+    【言語】\\
+    HTML\\
+    CSS\\
+    Oracle\\
+    Apex\\
+    JavaScript\\
+    【OS】\\
+    Windows\\
+    【DB】\\
+    Oracle
+}{
+    1 Person\\
+    Leader
+}
+\職務経歴{}{}{}{}{
+    【実績・取り組み】\\
+    ・Improved business and communication skills through interactions with various companies outside of our own.\\
+    ・Designed flexible and maintainable code to meet new needs that may arise in the future.
+}{}{}
+
+\職務経歴{2023年6月～2023年7月　　Gannon University}{
+    事業内容：Gannon University is a private catholic university offering undergraduate and graduate
+    programs in a variety of fields\mycomma including engineering\mycomma health sciences\mycomma business\mycomma and humanities.
+    It offers a comprehensive education that integrates liberal arts and professional learning.\\
+    資本金：Not Disclosed\\
+    売上高： Not Disclosed\\
+    従業員数： Not Disclosed\\
+    上場：Unlisted Company
+}{
+    Worked As\\
+    Research Assistant
+}{2023年6月～2023年7月／AITagSandbox}{
+    【プロジェクト概要】\\
+    I developed a AI which plays a game of tag. Using Genomes and a modified version of the NEAT algorithm\mycomma
+    the AI entities develop complex neuron connections through evolution and reinforced learning to solve
+    complex tasks. The purpose was to study the application of biology principles into AI for
+    future AI development. \\
+    【担当フェーズ】\\
+    ・Requirements Definition\\
+    ・Basic Design\\
+    ・Detailed Design\\
+    ・Development\\
+    ・Integration Testing\\
+    ・Presentation\\
+    【業務内容】\\
+    ・Data Collection\\
+    ・Planning\\
+    ・Design\\
+    ・Development\\
+    ・Implementation and Presentation\\
+    【実績・取り組み】\\
+    ・I learn how artificial intelligence is developed and how it can be trained and applied for different
+    situations. Just as well to contribute new ideas to technology development.\\
+    ・I developed a project in which brings new perspectives and applied it into a complex problem like making
+    it play a game of tag with the same limits as humans.
+}{
+    【言語】\\
+    C++\\
+    CMake\\
+    Cuda\\
+    Unreal
+    Engine\\
+    LaTeX\\
+    【OS】\\
+    Windows\\
+    MacOS
+}{
+    1 Person\\
+    Leader
+}
+
+% テクニカルスキル
+%
+% 各分野（OS、言語、DBなど）に分類された技術スキルを記入するセクションです。
+% 分類名（例：OS、言語、DB）は自由に設定でき、新しい名前を使用すると自動的に新しい分類グループが作成されます。
+% 分類ごとに複数項目を入力できますが、印刷レイアウトに応じて上限数が適用されます。
+
+% OS
+\テクニカルスキル{OS}{Windows}{10 Years\mycomma 4 Months}{Environment design and setup}
+\テクニカルスキル{OS}{Ubuntu Linux}{1 Year}{Environment design and setup}
+\テクニカルスキル{OS}{MacOS}{5 Months}{Environment design and setup}
+\テクニカルスキル{OS}{Arch Linux}{2 Years\mycomma 3 Months}{Environment design and setup}
+\テクニカルスキル{OS}{Manjaro Linux}{1 Year\mycomma 2 Months}{Environment design and setup}
+\テクニカルスキル{OS}{Proxmox}{3 Months}{Environment design and setup}
+
+% 言語
+\テクニカルスキル{言語}{PowerShell}{4 Years\mycomma 2 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{言語}{Bash}{3 Years\mycomma 2 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{言語}{C++}{8 Years\mycomma 2 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{言語}{C}{1 Year\mycomma 4 Months}{Basic programming}
+\テクニカルスキル{言語}{C\#}{1 Year\mycomma 2 Months}{Basic programming}
+\テクニカルスキル{言語}{Unity}{5 Months}{Basic programming}
+\テクニカルスキル{言語}{Unreal Engine}{7 Years\mycomma 11 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{言語}{Python}{5 Months}{Basic programming}
+\テクニカルスキル{言語}{React}{1 Year\mycomma 3 Months}{Basic programming}
+\テクニカルスキル{言語}{HTML}{3 Years\mycomma 6 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{言語}{CSS}{3 Years\mycomma 6 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{言語}{JavaScript}{3 Years\mycomma 6 Months}{Basic programming}
+
+% DB
+\テクニカルスキル{DB}{SQL}{5 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{DB}{JSON}{2 Years\mycomma 1 Months}{Code writing\mycomma direction and revision}
+\テクニカルスキル{DB}{Oracle}{2 Months}{Code writing\mycomma direction and revision}
+
+% 資格
+%
+% 保有する資格や免許を記入するセクションです。
+% 日付と資格名をペアで複数件記入可能です。
+
+\資格{August 2023}{(Honduras) Driver License}
+\資格{May 2022}{Extreme Networks) Introduction to Future Networks}
+\資格{December 2022}{(Harvard University) CS50’s Introduction to Computer Science}
+
+% 自己PR
+%
+% 自身の強みや価値観、成長姿勢などを記入するセクションです。
+% タイトルと本文のペアを複数記入可能です。
+
+\自己PR{Ability to Explore\mycomma Improve\mycomma and Learn}{
+    As I started my career\mycomma I has both corporate and personal projects. Through these experiences I developed
+    various skills going from management to development. As a Full-Stack Develop at Dinant\mycomma I was in charge
+    of many areas like pitching ideas\mycomma developing web applications\mycomma and so on. Because of my enjoyment in
+    the career I had also developed open-sourced projects in GitHub which are used by people and as well they
+    contribute with ideas and features.\\
+    \\
+    As I am trying to move to Japan\mycomma I know that my skills in verbal communication is lacking. To improve this\mycomma I
+    tried having conversation with my Japanese friends only using Japanese\mycomma and during one of my visits to Japan
+    I went to café’s situated around Japan to ask people if I could join them and practice my Japanese.
+}
+\自己PR{Ability to Continue Learning}{
+I was first exposed to the world of programming at the age of 14 after watching a video about game development
+in my computer class. That video inspired to develop my own game and even participated in a technology
+competition held at my school. Since I was alone\mycomma I learned various skills needed for game development like
+3D and 2D modeling\mycomma animation\mycomma and so on. I kept getting better and developed a second game at 18 years old.\\
+\\
+Because of all does experiences I wanted to keep learning of what it means to be a programmer and studied at
+Gannon University the major of Computer Science. As well adventure to develop various projects which touched
+different areas of programmers like Web-Development\mycomma AI development\mycomma and more.\\
+\\
+On May 2024 I started studying Japanese by myself and still studying every day. I do it with the hopes of
+working in Japan and contribute to develop further the technology being used as of today.
+}
+
+\end{document}

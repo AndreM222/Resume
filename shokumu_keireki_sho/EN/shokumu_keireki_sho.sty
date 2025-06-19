@@ -1,0 +1,726 @@
+%
+% Copyright (c) 1996, 2004, 2013, 2014, 2016, 2019, 2023
+% Tama Communications Corporation. All rights reserved.
+%
+% Redistribution and use in source and binary forms, with or without
+% modification, are permitted provided that the following conditions
+% are met:
+% 1. Redistributions of source code must retain the above copyright
+%    notice, this list of conditions and the following disclaimer.
+% 2. Redistributions in binary form must reproduce the above copyright
+%    notice, this list of conditions and the following disclaimer in the
+%    documentation and/or other materials provided with the distribution.
+%
+% THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+% ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+% IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+% ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+% FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+% DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+% OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+% HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+% OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+% SUCH DAMAGE.
+%
+%	rireki.sty	Version 1
+%
+%	URL: https://github.com/AndreM222/Resume
+%
+\typeout{`Shokumu_Keireki_Sho style(B5)'}
+%\usepackage[dvipdfmx]{graphicx}	% lualatex でも使えるようにshokumu_keireki_sho.tex に移動
+%----------------------------------------------------------------------------
+%
+% スタイルファイル実装メモ
+%
+%----------------------------------------------------------------------------
+%
+% 0. 用紙
+%
+%	B5 用紙を使用します。
+%
+% 1. 座標
+%
+%	本スタイルファイルで使用している座標は、用紙の左上が原点で、
+%	単位は mm です。
+%
+% 2. ページ原点
+%
+%	ページ毎にページ原点を設定しています。
+%
+%	\def\ROOT@X{0}		% ページ原点X(紙の左端からの距離mm)
+%	\def\ROOT@Y{0}		% ページ原点Y(紙の上端からの距離mm)
+%
+%	トンボ以外のすべての描画はページ原点を基準に行なわれるので、
+%	この値を変更することで、ページ全体のプリント位置を変更できます。
+%
+% 3. \Put コマンド
+%
+%	本スタイルファイルでは、ひとまとまりの描画を他と独立したものに
+%	するため、\SetPos(x,y)コマンドで基準位置を決め、\Put(x,y)コマンドで
+%	そこからの相対位置を指定するという二段構えで描画を行なっています。
+%
+%	出力の例を次に示します。
+%
+%	\def\ROOT@X{5}
+%	\def\ROOT@Y{5}
+%	\SetPos(10,10) {
+%		\Put(10,5){\makebox(10,2.5)[l]{文字列}}
+%	}
+%
+%                \ROOT@X   \SetPos   \Put
+%	        +5        +10       +10
+%           0    5    10   15   20   25   30   35
+%          0+----+----|----+----|----+----|----+-------------------------
+%           |    .
+%           |    .
+% \ROOT@Y  5+....+..........
+% +5        |    .(5,5)    .
+%           |    .         .
+%           |    .         .
+%           |    .         .
+% \SetPos 15+    ..........+.........|<-  10 ->|
+% +10       |              .(10,10)  +---------+-
+%           |              .         |文字列   |2.5
+% \Put    20+              ..........+---------+-
+% +5        |                        (10,5) => 最終的な座標(25,20)
+%
+%----------------------------------------------------------------------------
+%
+% 各種定義
+%
+%----------------------------------------------------------------------------
+\def\width{182}			% ページ幅(B5)
+\def\height{257}		% ページ高(B5)
+\def\ROOT@X{0}			% ページ原点X(紙の左端からの距離mm)
+\def\ROOT@Y{0}			% ページ原点Y(紙の上端からの距離mm)
+\topmargin      = -1in
+\oddsidemargin  = -1in
+\evensidemargin = -1in
+\headheight     = 0mm
+\headsep        = 0mm
+\parindent      = 0mm
+\textwidth      = \width mm
+\textheight     = \height mm
+\unitlength     = 1mm
+\pagestyle{empty}
+%----------------------------------------------------------------------------
+%
+% 座標値計算マクロ
+%
+%	\Add{10}{3}{\answer}	-> \answer = 10+3
+%	\Sub{10}{3}{\answer}	-> \answer = 10-3
+%
+%----------------------------------------------------------------------------
+{\catcode`\p=12\catcode`\t=12\gdef\num#1pt{#1}}
+\newdimen\result
+\def\Add#1#2#3{\result=#1pt \advance\result by #2pt
+	\edef#3{\expandafter\num\the\result}
+}
+\def\Sub#1#2#3{\result=#1pt \advance\result by -#2pt
+	\edef#3{\expandafter\num\the\result}
+}
+%----------------------------------------------------------------------------
+%
+% 左上を原点とする\put コマンド
+%
+%	\SetPos(#1,#2)#3	移動基準点を設定
+%	\Put(x,y)		移動基準点を左上原点とする\put
+%
+%----------------------------------------------------------------------------
+\def\SetPos(#1,#2)#3{
+	\Add{#1}\ROOT@X\root@x
+	\Add{#2}\ROOT@Y\root@y
+	{#3}
+}
+\def\Put(#1,#2)#3{
+	\Add\root@x{#1}\xpos		% 移動基準点との相対位置
+	\Add\root@y{#2}\ypos
+	\Sub\height\ypos\ypos		% 左上を原点に変更する
+	\put(\xpos,\ypos){#3}
+}
+%----------------------------------------------------------------------------
+%
+% 太枠ボックス描画
+%
+%	\ThickBox(幅,高さ)
+%
+% 描画位置は\SetPos()で指定して下さい。
+%
+%----------------------------------------------------------------------------
+\def\ThickBox(#1,#2){
+	\linethickness{0.5mm}
+	\Add{#1}{0.5}{\w}
+	\Put(-0.25,0){\line(1,0){\w}}
+	\Put(0,0){\line(0,-1){#2}}
+	\Put(-0.25,#2){\line(1,0){\w}}
+	\Put(#1,0){\line(0,-1){#2}}
+	\linethickness{0.1mm}
+}
+%----------------------------------------------------------------------------
+%
+% リスト操作マクロ
+%
+%	\追加\リスト\アイテム	アイテムをリストに追加します。
+%	\分解\アイテム		アイテムを分解します。
+%
+%	アイテム中の要素は':'で区切られています。
+%
+%----------------------------------------------------------------------------
+\def\@職務経歴リスト{}
+\def\@テクニカルスキルリスト{}
+\def\@資格リスト{}
+\def\@自己PRリスト{}
+\def\@職務要約リスト{}
+\def\@活かせる経験リスト{}
+\def\追加#1#2{
+\ifx#1\empty\edef#1{#2}
+\else\edef#1{#1,#2}
+\fi
+}
+\def\分解七#1:#2:#3:#4:#5:#6:#7:{
+\def\one{#1}\def\two{#2}\def\three{#3}\def\four{#4}\def\five{#5}\def\six{#6}\def\seven{#7}
+}
+
+\def\分解四#1:#2:#3:#4:{
+\def\one{#1}\def\two{#2}\def\three{#3}\def\four{#4}
+}
+\def\分解二#1:#2:{
+\def\one{#1}\def\two{#2}
+}
+
+\def\単体#1:{
+\def\one{#1}
+}
+%
+% 職務経歴リスト編集
+%
+\def\履歴リスト行高さ小{4}
+\def\履歴リスト行高さ中小{10}
+\def\履歴リスト行高さ中{30}
+\def\履歴リスト行高さ大{61}
+\def\履歴行高さ特大{100}
+\def\履歴リスト一上限{1}
+\def\履歴リスト二上限{2}
+\def\履歴リスト三上限{1}
+\def\履歴リスト四上限{2}
+\def\自己PRリスト一上限{1}
+\def\自己PRリスト二上限{1}
+\def\履歴説明幅{124.5}
+
+\newcount\職務経歴行カウント\職務経歴行カウント=0
+\newcount\自己PR行カウント\自己PR行カウント=0
+\def\@履歴リスト第一群{}
+\def\@履歴リスト第二群{}
+\def\@履歴リスト第三群{}
+\def\@履歴リスト第四群{}
+\def\@自己PRリスト第一群{}
+\def\@自己PRリスト第二群{}
+\def\リスト振り分け#1{
+\advance \職務経歴行カウント by 1
+\ifnum\職務経歴行カウント<2
+	\追加\@履歴リスト第一群{#1}
+\else
+	\ifnum\職務経歴行カウント<4
+		\追加\@履歴リスト第二群{#1}
+    \else
+        \ifnum\職務経歴行カウント<5
+            \追加\@履歴リスト第三群{#1}
+        \else
+            \追加\@履歴リスト第四群{#1}
+        \fi
+	\fi
+\fi
+}
+
+\def\自己PRリスト振り分け#1{
+\advance \自己PR行カウント by 1
+\ifnum\自己PR行カウント<2
+	\追加\@自己PRリスト第一群{#1}
+\else
+    \追加\@自己PRリスト第二群{#1}
+\fi
+}
+
+\def\職務経歴リスト編集{
+\ifx\@職務経歴リスト\empty\else
+	\@for\linebuf:=\@職務経歴リスト\do{
+		\リスト振り分け\linebuf
+	}
+\fi
+\ifx\@自己PRリスト\empty\else
+	\@for\linebuf:=\@自己PRリスト\do{
+		\自己PRリスト振り分け\linebuf
+	}
+\fi
+}
+
+\def\現在のスキル分類{}
+\def\テクニカルスキル出力#1#2{
+\newcount\linecount\linecount=0
+\def\right{r}
+\def\center{c}
+\def\space{s}
+\@for\linebuf:=#1\do{%
+	\expandafter\分解四\linebuf
+	\advance \linecount by 1
+	\unless\ifx\one\empty
+		\unless\ifnum\pdf@strcmp{\one}{\現在のスキル分類}=0
+			\Add\offset{-1}\offset
+			\Put(0,\offset){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){\枠の幅}}}
+			\Add\offset{1}\offset
+			\Put(1,\offset){\makebox(17,\履歴リスト行高さ小)[l]{\small \one}}
+			\edef\現在のスキル分類{\one}
+		\fi
+	\fi
+
+	\ifnum\linecount>#2
+		\typeout{[警告] 最大行数を超えているので、印刷できません。(\four)}
+	\else
+		\if\one\right
+			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[r]{\small \four\hspace{20mm}}}
+		\else\if\one\center
+				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[c]{\small \four\hspace{20mm}}}
+			\else\if\one\space
+					\relax
+				\else
+					\Put(26,\offset){\makebox(17,\履歴リスト行高さ小)[l]{\small \two}}
+					\Put(70,\offset){\makebox(8,\履歴リスト行高さ小)[c]{\small \three}}
+					\Put(84,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ小)[l]{\small \hspace{5mm}\four}}
+					\Add\offset{3}\offset
+					\Put(25,\offset){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){124.5}}}
+					\Add\offset{-3}\offset
+				\fi\fi\fi
+	\fi
+	\Add\offset{\履歴リスト行高さ小}\offset
+}
+}
+
+\def\職務経歴出力#1#2#3#4#5#6{
+\newcount\linecount\linecount=0
+\def\right{r}
+\def\center{c}
+\def\descriptionoffset\descriptionoffset=0
+\def\space{s}
+\@for\linebuf:=#1\do{
+	\expandafter\分解七\linebuf
+	\unless\ifx\one\empty
+		\Add\offset{-#3}\offset
+		\Add\offset{-4.5}\offset
+		\linethickness{2pt}
+		\Put(0,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\line(1,0){\枠の幅}}}
+		\Add\offset{2}\offset
+		\Put(1,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\scriptsize\textbf \one}}
+		\Add\offset{2}\offset
+		\Put(0,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\line(1,0){\枠の幅}}}
+		\Add\offset{\numexpr\履歴リスト行高さ大 - 49}\offset
+		\linethickness{0.4pt}
+		\Put(2,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ大)[t]{\parbox{125 mm}{\small \two}}}
+		\Put(135,\offset){\makebox(8,\numexpr\履歴リスト行高さ大 - #6)[c]{\parbox{18 mm}{\small\centering \three}}}
+		\Add\offset{\numexpr\履歴リスト行高さ大 + #6}\offset
+	\fi
+	\unless\ifx\four\empty
+		\Add\offset{-2.5}\offset
+		\Put(0,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\line(1,0){\枠の幅}}}
+		\Add\offset{2.5}\offset
+		\Put(1,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\scriptsize \four}}
+		\Put(-1,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[r]{\scriptsize 開発環境}}
+		\Put(17,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[r]{\scriptsize 規模}}
+		\Add\offset{2}\offset
+		\Put(0,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\line(1,0){\枠の幅}}}
+		\Add\offset{25}\offset
+	\fi
+
+	\Add\offset{26}\offset
+	\advance \linecount by 1
+	\ifnum\linecount>#2
+		\typeout{[警告] 最大行数を超えているので、印刷できません。(\three)}
+	\else
+		\if\one\right
+			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[r]{\small \three\hspace{20mm}}}
+		\else\if\one\center
+				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[c]{\small \three\hspace{20mm}}}
+			\else\if\one\space
+					\relax
+				\else
+					\Put(-8,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[t]{\parbox{105 mm}{\small \five}}}
+					\Add\offset{#4}\offset
+					\Put(109.,\offset){\makebox(18,\履歴行高さ特大)[c]{\parbox{18 mm}{\small\centering \six}}}
+					\Put(130.5,\offset){\makebox(18,\履歴行高さ特大)[c]{\parbox{18 mm}{\small\centering \seven}}}
+				\fi\fi\fi
+	\fi
+	\Add\offset{\numexpr\履歴行高さ特大+#5}\offset
+}
+}
+
+\def\資格出力#1#2{
+\newcount\linecount\linecount=0
+\def\right{r}
+\def\center{c}
+\def\space{s}
+\@for\linebuf:=#1\do{
+	\expandafter\分解二\linebuf
+	\advance \linecount by 1
+	\ifnum\linecount>#2
+		\typeout{[警告] 最大行数を超えているので、印刷できません。(\two)}
+	\else
+		\if\one\right
+			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ小)[r]{\small \two\hspace{20mm}}}
+		\else\if\one\center
+				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ小)[c]{\small \two\hspace{20mm}}}
+			\else\if\one\space
+					\relax
+				\else
+					\Put(1,\offset){\makebox(17,\履歴リスト行高さ小)[l]{\small \one}}
+					\Put(30,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ小)[l]{\small \two}}
+					\Add\offset{3}\offset
+					\Put(0,\offset){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){\枠の幅}}}
+					\Add\offset{-3}\offset
+				\fi\fi\fi
+	\fi
+	\Add\offset{\履歴リスト行高さ小}\offset
+}
+}
+
+\def\簡易リスト書き出し#1{
+\newcount\linecount\linecount=0
+\@for\linebuf:=#1\do{
+	\expandafter\単体\linebuf
+	\advance \linecount by 1
+	\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[t]{\parbox{150 mm}{\small \one}}}
+	\Add\offset{\履歴リスト行高さ中}\offset
+}
+}
+
+\def\自己PR出力#1#2{
+\newcount\linecount\linecount=0
+\def\right{r}
+\def\center{c}
+\def\space{s}
+\@for\linebuf:=#1\do{
+	\expandafter\分解二\linebuf
+	\advance \linecount by 1
+	\ifnum\linecount>#2
+		\typeout{[警告] 最大行数を超えているので、印刷できません。(\two)}
+	\else
+		\if\one\right
+			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[r]{\small \two\hspace{20mm}}}
+		\else\if\one\center
+				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[c]{\small \two\hspace{20mm}}}
+			\else\if\one\space
+					\relax
+				\else
+					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ小)[l]{\normalsize \textless\one\textgreater}}
+                    \Add\offset{\numexpr\履歴リスト行高さ中+1}\offset
+					\Put(13,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中)[t]{\parbox{150 mm}{\small \two}}}
+				\fi\fi\fi
+	\fi
+	\Add\offset{\履歴リスト行高さ中}\offset
+}
+}
+
+\def\簡易リスト書き出し小#1#2{
+\newcount\linecount\linecount=0
+\def\right{r}
+\def\center{c}
+\def\space{s}
+\@for\linebuf:=#1\do{
+	\expandafter\単体\linebuf
+	\advance \linecount by 1
+	\ifnum\linecount>#2
+		\typeout{[警告] 最大行数を超えているので、印刷できません。(\one)}
+	\else
+		\if\one\right
+			\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中小)[r]{\small \one\hspace{20mm}}}
+		\else\if\one\center
+				\Put(25,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中小)[c]{\small \p\one\hspace{20mm}}}
+			\else\if\one\space
+					\relax
+				\else
+					\Put(0,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ中小)[l]{\parbox{150 mm}{\small •\hspace{0.5 mm}\one}}}
+				\fi\fi\fi
+	\fi
+	\Add\offset{\履歴リスト行高さ中小}\offset
+}
+}
+
+%----------------------------------------------------------------------------
+%
+% 履歴書の書き出し
+%
+%----------------------------------------------------------------------------
+
+\def\タイトル#1#2{
+\Put(0,#2){\makebox(17,6)[l]{\rule{1.5ex}{1.5ex} #1}}
+}
+
+\def\ページ番号{
+\SetPos(0,220) {
+\def\見出しの高さ{5}
+\Put(86,\見出しの高さ){\makebox(76,\見出しの高さ)[r]{\small \thepage \slash \pageref*{LastPage}}}
+}
+}
+
+%----------------------------------------------------------------------------
+%
+% 履歴書の書き出し
+%
+%----------------------------------------------------------------------------
+\let\enddocumentorg=\enddocument
+\def\enddocument{
+	\writepages
+	\enddocumentorg
+}
+%----------------------------------------------------------------------------
+%
+% マクロ定義
+%
+%----------------------------------------------------------------------------
+%
+% ID情報
+%
+\def\姓#1{\def\@姓{#1}}
+\def\名#1{\def\@名{#1}}
+\def\現在日付#1{\def\@現在日付{#1}}
+%
+% 職務経歴、テクニカルスキル、資格、自己PR、職務要約、活かせる経験
+%
+\def\職務経歴#1#2#3#4#5#6#7{\追加\@職務経歴リスト{#1:#2:#3:#4:#5:#6:#7:}}
+\def\テクニカルスキル#1#2#3#4{\追加\@テクニカルスキルリスト{#1:#2:#3:#4:}}
+\def\資格#1#2{\追加\@資格リスト{#1:#2:}}
+\def\自己PR#1#2{\追加\@自己PRリスト{#1:#2:}}
+\def\職務要約#1{\追加\@職務要約リスト{#1:}}
+\def\活かせる経験#1{\追加\@活かせる経験リスト{#1:}}
+%----------------------------------------------------------------------------
+%
+% 書き出しページの内容
+%
+%----------------------------------------------------------------------------
+%
+% 各種定数
+%
+\def\枠の幅{149.5}
+\def\X軸{16}
+\def\Y軸{24}
+
+\def\writepages{
+	\def\ROOT@X{\X軸}				% 1ページ目の原点
+	\def\ROOT@Y{\Y軸}				% 1ページ目の原点
+	\職務経歴リスト編集
+	\begin{picture}(\width,\height)		% B5 = (181x257mm)
+		%----------------
+		% 氏名と日付
+		%----------------
+
+		\SetPos(0,0) {
+			\Put(0,-1){\makebox(\枠の幅,5)[m]{\Large 職\hspace{2mm}務\hspace{2mm}経\hspace{2mm}歴\hspace{2mm}書}}
+		}
+		\SetPos(0,0) {
+			\Put(0,5){\makebox(\枠の幅,7)[r]{\scriptsize \@現在日付 現在}}
+			\ifx\@姓\empty
+				\ifx\@名\empty
+					\Put(0,5){\makebox(\枠の幅,0)[r]{\underline{\scriptsize 氏名 \hspace{40mm}}}}
+				\else
+					\Put(0,5){\makebox(\枠の幅,0)[r]{\underline{\scriptsize 氏名 \@姓\hspace{2mm}\@名}}}
+				\fi
+			\else
+				\Put(0,5){\makebox(\枠の幅,0)[r]{\underline{\scriptsize 氏名\hspace{3mm}\@姓\hspace{2mm}\@名}}}
+			\fi
+		}
+
+		\SetPos(0,10) {
+		\def\見出しの高さ{6}
+		\タイトル{職務要約}{\見出しの高さ}
+		\Add{6}{\履歴リスト行高さ中}{\offset}
+		\簡易リスト書き出し\@職務要約リスト
+		}
+
+		\SetPos(0,42) {
+		\def\見出しの高さ{6}
+		\タイトル{活かせる経験・知識・技術}{\見出しの高さ}
+		\Add{6}{\履歴リスト行高さ中小}{\offset}
+		\簡易リスト書き出し小\@活かせる経験リスト{4}
+		}
+
+		%----------------
+		% 職務経験
+		%----------------
+
+		\SetPos(0,95) {
+		\def\枠の高さ{120}
+		\def\見出しの高さ{6}
+		\def\企業情報ブロック縦位置{17}
+		\def\環境欄上下調整{-28}
+		\def\職務間スペース調整{0}
+        \def\企業情報ブロックスペース調整{0}
+		\タイトル{職務経歴}{0}
+		\ThickBox(\枠の幅,\枠の高さ)
+		\Put(108,64.5){\line(0,-1){55.5}}
+		\Put(130,4){\line(0,-1){116}}
+		\Add{-28.5}{\履歴行高さ特大}{\offset}
+        \職務経歴出力\@履歴リスト第一群\履歴リスト一上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
+		}
+
+		%----------------
+		% ページ番号
+		%----------------
+		\ページ番号
+	\end{picture}
+
+	\newpage
+
+	\def\ROOT@X{\X軸}				% 2ページ目の原点
+	\def\ROOT@Y{\Y軸}				% 2ページ目の原点
+	\begin{picture}(\width,\height)		% B5 = (182x257mm)
+
+		%----------------
+		% 職務経験(続き)
+		%----------------
+
+		\SetPos(0,0) {
+		\def\枠の高さ{200}
+		\def\見出しの高さ{0}
+		\def\企業情報ブロック縦位置{0}
+		\def\環境欄上下調整{0}
+		\def\職務間スペース調整{-50}
+        \def\企業情報ブロックスペース調整{0}
+		\ThickBox(\枠の幅,\枠の高さ)
+		\Put(108,0){\line(0,-1){200}}
+		\Put(130,0){\line(0,-1){200}}
+		\Add{-25}{\履歴行高さ特大}{\offset}
+        \職務経歴出力\@履歴リスト第二群\履歴リスト二上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
+		}
+
+		%----------------
+		% ページ番号
+		%----------------
+		\ページ番号
+	\end{picture}
+
+	\newpage
+
+	\def\ROOT@X{\X軸}				% 3ページ目の原点
+	\def\ROOT@Y{\Y軸}				% 3ページ目の原点
+	\begin{picture}(\width,\height)		% B5 = (182x257mm)
+
+		%----------------
+		% 職務経験(続き)
+		%----------------
+
+		\SetPos(0,0) {
+		\def\枠の高さ{25}
+		\def\企業情報ブロック縦位置{0}
+		\def\環境欄上下調整{0}
+		\def\職務間スペース調整{0}
+        \def\企業情報ブロックスペース調整{0}
+		\ThickBox(\枠の幅,\枠の高さ)
+		\Put(108,0){\line(0,-1){\枠の高さ}}
+		\Put(130,0){\line(0,-1){\枠の高さ}}
+		\Add{-25}{\履歴行高さ特大}{\offset}
+        \職務経歴出力\@履歴リスト第三群\履歴リスト三上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
+		}
+
+		\SetPos(0,27) {
+		\def\枠の高さ{170}
+		\def\企業情報ブロック縦位置{42}
+		\def\環境欄上下調整{0}
+		\def\職務間スペース調整{0}
+        \def\企業情報ブロックスペース調整{-30}
+		\ThickBox(\枠の幅,\枠の高さ)
+		\Put(108,44.5){\line(0,-1){125.5}}
+		\Put(130,4.3){\line(0,-1){165.7}}
+		\Add{-3.5}{\履歴行高さ特大}{\offset}
+        \職務経歴出力\@履歴リスト第四群\履歴リスト四上限\企業情報ブロック縦位置\環境欄上下調整\職務間スペース調整\企業情報ブロックスペース調整
+		}
+
+		%----------------
+		% ページ番号
+		%----------------
+		\ページ番号
+	\end{picture}
+
+	\newpage
+
+	\def\ROOT@X{\X軸}				% 4ページ目の原点
+	\def\ROOT@Y{\Y軸}				% 4ページ目の原点
+	\begin{picture}(\width,\height)		% B5 = (182x257mm)
+
+		%----------------
+		% テクニカルスキル
+		%----------------
+
+		\SetPos(0,0) {
+		\def\枠の高さ{90}
+		\def\見出しの高さ{6}
+		\def\テクニカルスキル件数{21}
+		\タイトル{テクニカルスキル}{0}
+		\ThickBox(\枠の幅,\枠の高さ)
+		\Put(-32,\見出しの高さ){\makebox(\履歴説明幅,\見出しの高さ)[c]{\scriptsize 種類}}
+		\Put(11,\見出しの高さ){\makebox(\履歴説明幅,\見出しの高さ)[c]{\scriptsize 使用期間}}
+		\Put(55,\見出しの高さ){\makebox(\履歴説明幅,\見出しの高さ)[c]{\scriptsize レベル}}
+		\Put(0,\numexpr\見出しの高さ+3){\makebox(\履歴説明幅,\見出しの高さ)[l]{\scriptsize \line(1,0){\枠の幅}}}
+		\Put(25,\見出しの高さ){\line(0,-1){84}}
+		\Put(60,0){\line(0,-1){90}}
+		\Put(88,0){\line(0,-1){90}}
+		\def\offset{10}
+		\テクニカルスキル出力\@テクニカルスキルリスト\テクニカルスキル件数
+		}
+
+		%----------------
+		% 資格
+		%----------------
+
+		\SetPos(0,100) {
+		\def\枠の高さ{12.6}
+		\def\見出しの高さ{6}
+		\def\資格件数{3}
+		\タイトル{資格}{0}
+		\ThickBox(\枠の幅,\枠の高さ)
+		\Put(29,0){\line(0,-1){12.5}}
+		\def\offset{4.5}
+		\資格出力\@資格リスト\資格件数
+		}
+
+		%----------------
+		% 自己PR
+		%----------------
+
+		\SetPos(0,124) {
+		\def\見出しの高さ{6}
+		\タイトル{自己PR}{0}
+		\def\offset{4}
+		\自己PR出力\@自己PRリスト第一群\自己PRリスト一上限
+		}
+
+		%----------------
+		% ページ番号
+		%----------------
+		\ページ番号
+	\end{picture}
+
+	\newpage
+
+	\def\ROOT@X{\X軸}				% 4ページ目の原点
+	\def\ROOT@Y{\Y軸}				% 4ページ目の原点
+	\begin{picture}(\width,\height)		% B5 = (182x257mm)
+
+		%----------------
+		% 自己PR
+		%----------------
+
+		\SetPos(0,0) {
+		\def\見出しの高さ{6}
+		\def\offset{4}
+		\自己PR出力\@自己PRリスト第二群\自己PRリスト二上限
+		\Put(\枠の幅,\offset){\makebox(17,0)[l]{以上}}
+		}
+
+		%----------------
+		% ページ番号
+		%----------------
+		\ページ番号
+	\end{picture}
+}
+%----------------------------------------------------------------------------
+% 書き出しページの内容終り
+%----------------------------------------------------------------------------
