@@ -279,19 +279,19 @@
 \def\space{s}
 \@for\linebuf:=#1\do{
 	\expandafter\分解七\linebuf
-	\unless\ifx\five\empty
+	\unless\ifx\one\empty
 		\Add\offset{-#3}\offset
 		\Add\offset{-4.5}\offset
 		\linethickness{2pt}
 		\Put(0,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\line(1,0){\枠の幅}}}
 		\Add\offset{2}\offset
-		\Put(1,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\scriptsize\textbf \six}}
+		\Put(1,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\scriptsize\textbf \one}}
 		\Add\offset{2}\offset
 		\Put(0,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[l]{\line(1,0){\枠の幅}}}
 		\Add\offset{7}\offset
 		\linethickness{0.4pt}
-		\Put(2,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ大)[t]{\parbox{125 mm}{\small \five}}}
-		\Put(135,\offset){\makebox(8,\履歴リスト行高さ大)[c]{\parbox{18 mm}{\small\centering \seven}}}
+		\Put(2,\offset){\makebox(\履歴説明幅,\履歴リスト行高さ大)[t]{\parbox{125 mm}{\small \two}}}
+		\Put(135,\offset){\makebox(8,\履歴リスト行高さ大)[c]{\parbox{18 mm}{\small\centering \three}}}
 		\Add\offset{\履歴リスト行高さ大}\offset
 	\fi
 	\unless\ifx\four\empty
@@ -318,10 +318,10 @@
 			\else\if\one\space
 					\relax
 				\else
-					\Put(-8,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[t]{\parbox{105 mm}{\small \one}}}
+					\Put(-8,\offset){\makebox(\履歴説明幅,\履歴行高さ特大)[t]{\parbox{105 mm}{\small \five}}}
 					\Add\offset{#4}\offset
-					\Put(109.,\offset){\makebox(18,\履歴行高さ特大)[c]{\parbox{18 mm}{\small\centering \two}}}
-					\Put(130.5,\offset){\makebox(18,\履歴行高さ特大)[c]{\parbox{18 mm}{\small\centering \three}}}
+					\Put(109.,\offset){\makebox(18,\履歴行高さ特大)[c]{\parbox{18 mm}{\small\centering \six}}}
+					\Put(130.5,\offset){\makebox(18,\履歴行高さ特大)[c]{\parbox{18 mm}{\small\centering \seven}}}
 				\fi\fi\fi
 	\fi
 	\Add\offset{\numexpr\履歴行高さ特大+#5}\offset
@@ -505,14 +505,14 @@
 
 		\SetPos(0,10) {
 		\def\見出しの高さ{6}
-        \タイトル{職務要約}{\見出しの高さ}
+		\タイトル{職務要約}{\見出しの高さ}
 		\Add{6}{\履歴リスト行高さ中}{\offset}
 		\簡易リスト書き出し\@職務要約リスト
 		}
 
 		\SetPos(0,42) {
 		\def\見出しの高さ{6}
-        \タイトル{活かせる経験・知識・技術}{\見出しの高さ}
+		\タイトル{活かせる経験・知識・技術}{\見出しの高さ}
 		\Add{6}{\履歴リスト行高さ中小}{\offset}
 		\簡易リスト書き出し小\@活かせる経験リスト{4}
 		}
@@ -527,7 +527,7 @@
 		\def\企業情報ブロック縦位置{17}
 		\def\環境欄上下調整{-28}
 		\def\職務間スペース調整{0}
-        \タイトル{職務経歴}{0}
+		\タイトル{職務経歴}{0}
 		\ThickBox(\枠の幅,\枠の高さ)
 		\Put(108,64.5){\line(0,-1){55.5}}
 		\Put(130,4){\line(0,-1){116}}
@@ -612,7 +612,7 @@
 		\def\枠の高さ{90}
 		\def\見出しの高さ{6}
 		\def\テクニカルスキル件数{21}
-        \タイトル{テクニカルスキル}{0}
+		\タイトル{テクニカルスキル}{0}
 		\ThickBox(\枠の幅,\枠の高さ)
 		\Put(-30,\見出しの高さ){\makebox(\履歴説明幅,\見出しの高さ)[c]{\scriptsize 種類}}
 		\Put(15,\見出しの高さ){\makebox(\履歴説明幅,\見出しの高さ)[c]{\scriptsize 使用期間}}
@@ -633,7 +633,7 @@
 		\def\枠の高さ{12.6}
 		\def\見出しの高さ{6}
 		\def\資格件数{3}
-        \タイトル{資格}{0}
+		\タイトル{資格}{0}
 		\ThickBox(\枠の幅,\枠の高さ)
 		\Put(29,0){\line(0,-1){12.5}}
 		\def\offset{4.5}
@@ -647,7 +647,7 @@
 		\SetPos(0,124) {
 		\def\見出しの高さ{6}
 		\def\自己PR件数{2}
-        \タイトル{自己PR}{0}
+		\タイトル{自己PR}{0}
 		\def\offset{12}
 		\自己PR出力\@自己PRリスト\自己PR件数
 		\Add\offset{-10}\offset
