@@ -1,46 +1,48 @@
-\documentclass{../../Styles/AndreCV-RStyle}
+\documentclass{../../../Styles/MS-Style}
 
 \usepackage[
-    pdftitle={Andre Mossi CV (ES)},
-    pdfauthor={Andre Mossi},
-    pdfcreator={LaTeX and NeoVim}
+    pdftitle={André Mossi CV (ES)},
+    pdfauthor={André Mossi},
+    pdfcreator={LaTeX y NeoVim}
 ]{hyperref}
-
-\usepackage{graphicx}
 
 \begin{document}
 
 \begin{center}
-    \textbf{\huge{Roberto (Andre) Mossi Milla}}\\
+    \authorTitle{Roberto (André) Mossi Milla}
 
     \vspace{0.3cm}
 
-    \small{
-        Erie, Pennsylvania, 16506\\
-        \href{tel:+18147901591}{814-790-1591}\\
-        \href{mailto:mossiroberto0392@gmail.com}{mossiroberto0392@gmail.com}\\
-        \href{https://andremossi-linktree.vercel.app/}{andremossi-linktree.vercel.app}
+    \contactBlock{
+        Erie, Pennsylvania, 16506
+    }{
+        814-790-1591
+    }{
+        mossiroberto0392@gmail.com
+    }{
+        andremossi-linktree.vercel.app
+    }{
+        github.com/AndreM222
     }
-    \vspace{0.5cm}
 
-    \includegraphics{../../Assets/Formal-C-3.jpg}
+    \vspace{0.5cm}
 \end{center}
 
 \begin{Form}
-    \textbf{\section{RESUMEN}}
+    \sectionTitle{RESUMEN}
     \normalsize{
         Desarrollador Full-Stack cursando una Licenciatura en Ciencias de la Computación. He desarrollado proyectos
         paralelos, tomado clases en línea y estudiado en la Universidad de Gannon con el objetivo de aumentar mis
         conocimientos.
     }
 
-    \textbf{\section{EXPERIENCIA LABORAL}}
+    \sectionTitle{EXPERIENCIA LABORAL}
 
-    \textbf{\subsection{Dinant, Tegucigalpa, Honduras}}
+    \subSectionTitle{Dinant}{Tegucigalpa, Honduras}
 
-    \subsubsection{Desarrollador Full-Stack, Junio - Julio 2023}
-    \begin{itemize}
-        \item
+    \subSubSectionTitle{Desarrollador Full-Stack}{Junio - Julio 2023}
+    \begin{listBlock}
+        \generalItem
             Gestioné una base de datos de miles de clientes utilizando SQL, y se trabaje en una aplicación para
             visualizar e interactuar con los datos. Entre las muchas bases de datos, una de ellas se diseñó para
             llevar un seguimiento de todos los detalles de la maquinaria, como el estado actual del equipo de varias
@@ -48,7 +50,7 @@
             de datos utilizada para mantener información sobre compras de productos, estado y tipo de plan, para tener
             una interacción más rápida y efectiva con los clientes.
 
-        \item
+        \generalItem
             Creé aplicaciones web utilizando Apex Oracle, JavaScript, CSS y algo de HTML para clientes comerciales,
             principalmente vendedores latinos destacados. Una de ellas tenía como propósito generar contratos
             digitales de manera sencilla, actualizando en tiempo real las posibles respuestas en los campos
@@ -57,121 +59,121 @@
             solicitar ayuda. Basado en el perfil de los usuarios y los campos completados, el programa determinaba
             los mejores ayudantes que podrían necesitar para sus necesidades.
 
-    \end{itemize}
+    \end{listBlock}
 
-    \textbf{\subsection{Gannon University, Pennsylvania, Estados Unidos}}
+    \subSectionTitle{Gannon University}{Pennsylvania, Estados Unidos}
 
-    \subsubsection{Asistente de Investigación, Agosto 2024 - Mayo 2025}
-    \begin{itemize}
-        \item
+    \subSubSectionTitle{Asistente de Investigación}{Agosto 2024 - Mayo 2025}
+    \begin{listBlock}
+        \generalItem
             Trabaje con un profesor desarrollando una investigación sobre una simulación de organismos destinada
             a enfatizar la selección natural bajo restricciones ambientales.
 
-        \item
+        \generalItem
             La idea de el prjecto era implementar evulution de neurodos con topologia aumentada(NEAT Algorithm)
             para desarrollar entidades que puedes armar sus propios cerebros con aprendisaje reforzado para
             adaptarse a differentes tareas dadas.
 
-        \item
+        \generalItem
             Usando technologias como C++, CUda, CMake, y Unreal Engine, trabaje en traer los organismos a la vida
             usando inteligencia artifical para estudiar su comportamiento en differentes assignaturas de supervivencia,
             en este caso era un juego de las traes.
 
-        \item
+        \generalItem
             Mi papel fue acceptado y publicado por la asociacion de educacion de ingenieros de america (ASEE). Y
             fui invitado y presente en una conferencia dada en Sigma XI en la universidad de Penn State University.
-    \end{itemize}
+    \end{listBlock}
 
-    \subsubsection{Assistente de Professor, Presente}
-    \begin{itemize}
-        \item
+    \subSubSectionTitle{Assistente de Professor}{Presente}
+    \begin{listBlock}
+        \generalItem
             Voluntariado para assistente de professor. Responsable de assistir a los estudiantes con aclarar dudas que
             podrian presentarse en la clase.
-    \end{itemize}
+    \end{listBlock}
 
-    \subsubsection{Técnico Estudiantil, Agosto - Diciembre 2022}
-    \begin{itemize}
-        \item
+    \subSubSectionTitle{Técnico Estudiantil}{Agosto - Diciembre 2022}
+    \begin{listBlock}
+        \generalItem
             Trabajé en el departamento de TI de la universidad. Fui responsable de brindar asistencia en problemas
             relacionados con la tecnología a estudiantes o profesores 5 días a la semana.
-    \end{itemize}
+    \end{listBlock}
 
-    \textbf{\subsection{Yakiniku Byakutan, Tokyo, Japon}}
+    \subSectionTitle{Yakiniku Byakutan}{Tokyo, Japon}
 
-    \subsubsection{Personal, Diciembre 2022}
-    \begin{itemize}
-        \item
+    \subSubSectionTitle{Personal}{Diciembre 2022}
+    \begin{listBlock}
+        \generalItem
             Voluntariado para asistente de cocina. Me encargaba de asegurar que la limpieza del restaurante estuviera conforme
             con los estándares del registro de salud.
-    \end{itemize}
+    \end{listBlock}
 
-    \textbf{\section{EDUCACIÓN}}
+    \sectionTitle{EDUCACIÓN}
 
-    \textbf{\subsection{Gannon University, Pennsylvania, Estados Unidos}}
+    \subSectionTitle{Gannon University}{Pennsylvania, Estados Unidos}
     Bachelor of Science in Computer Systems Engineering, Presente
 
-    \textbf{\subsection{Harvard University, En Linea}}
+    \subSectionTitle{Harvard University, En Linea}
     CS50’s Introduction to Computer Science, Diciembre 2022
 
-    \textbf{\subsection{Extreme Networks, En Linea}}
+    \subSectionTitle{Extreme Networks, En Linea}
     Introduction to Future Networks, Mayo 2022
 
-    \textbf{\section{HABILIDADES ADICIONALES}}
-    \begin{itemize}
-        \item Competente en PowerShell, Bash, and NVIM.
+    \sectionTitle{HABILIDADES ADICIONALES}
+    \begin{listBlock}
+        \generalItem Competente en PowerShell, Bash, and NVIM.
 
-        \item
+        \generalItem
             Aprendí React, Next.js, Vite y Vercel para el despliegue y desarrollo de mi portafolio y sitio web
             tipo link tree.
 
-        \item Nivel intermedio en C++.
+        \generalItem Nivel intermedio en C++.
 
-        \item
+        \generalItem
             Aprendí Linux e hice una configuración personalizada ("rice") con el propósito de aumentar mi
             conocimiento sobre sistemas operativos, entender cómo funciona una máquina y ser capaz de leer
             el código de otras personas.
 
-        \item Fluidez escrita y oral en español.
+        \generalItem Fluidez escrita y oral en español.
 
-        \item Fluidez escrita y oral en ingles.
+        \generalItem Fluidez escrita y oral en ingles.
 
-        \item Principiante escrito y oral en japones.
+        \generalItem Principiante escrito y oral en japones.
 
-    \end{itemize}
+    \end{listBlock}
 
-    \textbf{\section{RESUMEN DE CUALIFICACIONES}}
+    \sectionTitle{RESUMEN DE CUALIFICACIONES}
 
-    \begin{itemize}
-        \item 3 años de experiencia en Windows PowerShell.
+    \begin{listBlock}
+        \generalItem 3 años de experiencia en Windows PowerShell.
 
-        \item 3 años de experiencia creando juegos en Unreal Engine.
+        \generalItem 3 años de experiencia creando juegos en Unreal Engine.
 
-        \item 1 año de experiencia depurando software utilizando Visual Studio, IntelliJ, NVIM y VSCode.
+        \generalItem 1 año de experiencia depurando software utilizando Visual Studio, IntelliJ, NVIM y VSCode.
 
-        \item 1 año de experiencia desarrollando software en C++.
+        \generalItem 1 año de experiencia desarrollando software en C++.
 
-        \item 5 meses de experiencia desarrollando aplicaciones web en JavaScript, HTML y CSS.
+        \generalItem 5 meses de experiencia desarrollando aplicaciones web en JavaScript, HTML y CSS.
 
-        \item 3 meses de experiencia desarrollando software en Java.
+        \generalItem 3 meses de experiencia desarrollando software en Java.
 
-        \item 3 meses de experiencia desarrollando software en C\# y C.
+        \generalItem 3 meses de experiencia desarrollando software en C\# y C.
 
-        \item 2 meses de experiencia desarrollando servicios en la nube a gran escala.
+        \generalItem 2 meses de experiencia desarrollando servicios en la nube a gran escala.
 
-        \item 2 meses de experiencia trabajando con Oracle y Oracle Apex.
+        \generalItem 2 meses de experiencia trabajando con Oracle y Oracle Apex.
 
-        \item 2 meses de experiencia desarrollando sitios web en NodeJS, React y Next.js.
+        \generalItem 2 meses de experiencia desarrollando sitios web en NodeJS, React y Next.js.
 
-        \item 3 meses de experiencia desarrollando software en Python.
-    \end{itemize}
+        \generalItem 3 meses de experiencia desarrollando software en Python.
+    \end{listBlock}
 
-    \textbf{\section{PREMIOS Y HONORES}}
+    \sectionTitle{PREMIOS Y HONORES}
 
-    \begin{itemize}
-        \item "Premio al Desarrollo Escolar" obtenido por el destacado desarrollo de un videojuego usando Blueprints en Unreal Engine 4, 2020.
+    \begin{listBlock}
+        \awardItem{Premio al Desarrollo Escolar}{obtenido por el destacado desarrollo de un videojuego usando Blueprints en Unreal Engine 4}{2020}.
 
-        \item "Premio al Desarrollo Escolar" obtenido por el destacado desarrollo de un videojuego utilizando C++ y Unreal Engine 4, 2016.
-    \end{itemize}
+        \awardItem{Premio al Desarrollo Escolar}{obtenido por el destacado desarrollo de un videojuego utilizando C++ y Unreal Engine 4}{2016}.
+    \end{listBlock}
 
 
 \end{Form}
