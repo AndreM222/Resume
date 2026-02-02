@@ -17,7 +17,10 @@
 
 \pagestyle{empty}
 
-\newcommand\authorTitle[1]{\textbf{\huge{#1}}\\}
+\newcommand\authorTitle[1]{
+    \textbf{\huge{#1}}\\
+    \vspace{0.3cm}
+}
 
 % =========================
 % Contact Information
@@ -31,13 +34,23 @@
 \newcommand\repositoriesInfo[1]{\small{\href{https://github.com/AndreM222}{#1}}}
 
 \newcommand{\contactBlock}[5]{
-    \begin{tabular}{c}
-        \locationInfo{#1}\\
-        \phoneInfo{#2}\\
-        \mailInfo{#3}\\
-        \websiteInfo{#4}\\
+    \noindent
+    \hspace*{-\dimexpr\oddsidemargin+1in\relax}
+    \makebox[\paperwidth][c]{
+        \small
+        \centering
+        \locationInfo{#1}
+        \textbullet
+        \phoneInfo{#2}
+        \textbullet
+        \mailInfo{#3}
+        \textbullet
+        \websiteInfo{#4}
+        \textbullet
         \repositoriesInfo{#5}
-    \end{tabular}
+    }
+
+    \hrule
 }
 
 % =========================
