@@ -1,8 +1,14 @@
 *.aux
-*.auxlock
+*.bbl
+*.bbl-SAVE-ERROR
+*.bcf
+*.bcf-SAVE-ERROR
+*.blg
 *.fdb_latexmk
 *.fls
 *.log
 *.out
+*.xml
+*.listing
+
 .DS_Store
-*.gz

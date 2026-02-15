@@ -1,4 +1,5 @@
 \documentclass{../../../Styles/MS-Style}
+\addbibresource{../../../Assets/Citations/references.bib}
 
 \usepackage[
     pdftitle={André Mossi CV (EN)},
@@ -11,25 +12,25 @@
 \begin{center}
 	\authorTitle{Roberto (André) Mossi Milla}
 
-    \contactBlock{
-        Erie, Pennsylvania, 16506
-    }{
-        814-790-1591
-    }{
-        mossiroberto0392@gmail.com
-    }{
-        andremossi-linktree.vercel.app
-    }{
-        github.com/AndreM222
-    }
+	\contactBlock{
+		Erie, Pennsylvania, 16506
+	}{
+		814-790-1591
+	}{
+		mossiroberto0392@gmail.com
+	}{
+		andremossi-linktree.vercel.app
+	}{
+		github.com/AndreM222
+	}
 \end{center}
 
 \begin{Form}
 	\sectionTitle{SUMMARY}
 	\normalsize{
-		Full-Stack Developer with a B.S. in Computer Science. Experienced in academic research, industry internship,
-		and independent projects. Developed side projects, completed online courses, and studied at Gannon University
-		to continuously expand technical expertise.
+		Software Engineer with a B.S. in Computer Science, experienced in computer vision systems,
+		artificial intelligence research, and real-time simulation systems and full-stack platforms.
+		Background includes industry collaboration, academic publication, and end-to-end system design.
 	}
 
 	\sectionTitle{WORK EXPERIENCE}
@@ -38,95 +39,140 @@
 
 	\subSubSectionTitle{Full-Stack Developer}{June - July 2023}
 	\begin{listBlock}
-		\generalItem Designed and managed SQL databases containing thousands of client records, including systems
-		      for tracking machinery conditions across multiple companies and streamlining product purchase,
-		      status, and plan management to improve client interactions.
-		\generalItem Developed web applications using Oracle APEX, JavaScript, CSS, and HTML for business clients.
-		      Projects included:
-		      \begin{listBlock}
-			      \generalItem A digital contract generator with real-time field updates based on user input and
-			            permissions.
-			      \generalItem A factory worker assistance app that recommended optimal helpers based on user profiles
-			            and submitted requests.
-		      \end{listBlock}
-		\generalItem Collaborated with stakeholders to plan, design, and release multiple web applications into
-		      production.
+		\generalItem
+		Led the end-to-end design and development of two production web platforms, conducting requirements
+		gathering, system planning, database architecture design, client presentations, and final
+		deployment.\cite{DinantRecommendation}
+
+		\generalItem
+		Architected and implemented a contract lifecycle management system for a device sales, rental, and repair
+		company. Designed relational SQL schemas to track device state (sold, rented, under repair, returned),
+		service eligibility, country-based filtering, and client records across multiple regions.
+
+		\generalItem
+		Developed a multi-role web application (Oracle APEX, JavaScript, HTML, CSS) enabling guest contract signing,
+		digital signature capture, automated PDF generation, and administrative dashboards with advanced filtering
+		by date, country, device state, and contract status.
+
+		\generalItem
+		Engineered a repair workflow system with state transitions, damage logging, cost tracking, time tracking,
+		and daily activity reports to ensure accountability and operational transparency.
+
+		\generalItem
+		Built a factory maintenance management platform enabling real-time machine status reporting, staged
+		maintenance workflows, automated notifications, repair logs, and material usage tracking with automatic
+		inventory deduction and procurement insight reporting.
+
+		\generalItem
+		Collaborated directly with international stakeholders, conducted iterative demos, incorporated production
+		feedback, and deployed finalized systems used by operational teams.
 	\end{listBlock}
 
 	\subSectionTitle{Gannon University}{Pennsylvania, United States}
 
-	\subSubSectionTitle{Research Assistant}{August 2024 - May 2025}
+	\subSubSectionTitle{Computer Vision Engineer (Project-Based) Industry Partner (NDA)}{August 2024 - May 2025}
 	\begin{listBlock}
-		\generalItem Collaborated with a professor on research simulating organisms to study natural selection under
-		      environmental constraints.
-		\generalItem Implemented NeuroEvolution of Augmenting Topologies (NEAT) to enable entities to evolve neural
-		      architectures through reinforcement learning for task-solving.
-		\generalItem Utilized C++, CUDA, CMake, and Unreal Engine to develop AI-driven organisms and analyze their survival
-		      behavior in a “tag” simulation environment.
-		\generalItem Research paper accepted and published by the American Society for Engineering Education (ASEE) and
-		      presented at a Sigma Xi conference at Penn State University.
+		\generalItem
+		Architected and deployed a real-time industrial traceability system using Ultralytics YOLO
+		to detect and track pallets, automatically generating structured events with images
+		and detection metadata.\cite{ComputerVisionVisual}
+
+		\generalItem
+		Collaborated in a cross-functional team contributing across hardware, backend, and software components;
+		took primary ownership of the monitoring dashboard and visualization interface.
+
+		\generalItem
+		Developed a full-stack web dashboard (React, JavaScript) integrated with backend services and TimescaleDB
+		to visualize detection events, images, and operational analytics in real time.
+
+		\generalItem
+		Implemented administrative tools within the dashboard to delete images, correct detections,
+		and curate labeled datasets used for iterative object detection model retraining,
+		improving dataset quality and system reliability.
+
+		\generalItem
+		Engineered an event-driven pipeline that synchronized frame capture with detection metadata,
+		enabling downstream anomaly and damage analysis workflows.
+
+		\generalItem
+		Delivered recurring technical presentations and system demonstrations to industry stakeholders
+		and internal reviewers, supporting continued project funding and informing architectural decisions,
+		including migration to NVIDIA Jetson hardware for improved performance and thermal stability.
+
+		\generalItem
+		Containerized distributed services using Docker and integrated multi-language components
+		(C++, Python, Rust) to coordinate inference, data processing, and system communication.
 	\end{listBlock}
 
-    \subSubSectionTitle{Computer Vision Engineer (Project-Based) Industry Partner (NDA)}{August 2024 - May 2025}
-    \begin{listBlock}
-        \generalItem
-        Designed and implemented a camera-based traceability system to detect and track pallets in real time using
-        YOLO (Ultralytics) object detection.
-        \generalItem
-        Built an event-driven pipeline that captured images and detection metadata when pallets passed through
-        cameras, enabling damage and anomaly detection.
-        \generalItem
-        Developed a full-stack web application (React, JavaScript) to visualize detection events, images, and
-        analytics stored in TimescaleDB.
-        \generalItem
-        Containerized and deployed services using Docker, integrating components written in C++, Python, and Rust.
-    \end{listBlock}
+	\subSubSectionTitle{Research Assistant}{August 2024 - May 2025}
+	\begin{listBlock}
+		\generalItem
+		Conducted research under faculty supervision on multi-agent artificial intelligence
+		simulating natural selection and survival behaviors in dynamic environments.\cite{TagResearchRecommendation}
+
+		\generalItem
+		Implemented NeuroEvolution of Augmenting Topologies (NEAT) to evolve neural network architectures and
+		behavioral strategies across generations.
+
+		\generalItem
+		Developed a 3D multi-agent simulation environment in Unreal Engine featuring
+		procedural world generation, physics-based interactions, and reinforcement learning pipelines
+		using C++, CUDA, and PyTorch.
+
+		\generalItem
+		Research paper accepted and published by the American Society for Engineering Education
+		(ASEE) and presented at a Sigma Xi conference at Penn State University.\cite{AITagResearchPublication} \cite{AITagSigmaXIPresentation}
+	\end{listBlock}
 
 	\subSubSectionTitle{Teacher Assistant}{August - December 2024}
 	\begin{listBlock}
 		\generalItem
-		      Volunteered as a Teaching Assistant, supporting students by answering questions, clarifying concepts,
-		      and reinforcing course material during class sessions.
+		Volunteered as a Teaching Assistant, supporting students by answering questions, clarifying concepts,
+		and reinforcing course material during class sessions.
 	\end{listBlock}
 
 	\subSubSectionTitle{Student Technician}{August - December 2022}
 	\begin{listBlock}
 		\generalItem
-		      Worked at the IT department of the university. Was responsible for giving assistance in technology
-		      related issues to students and professors 5 days a week.
+		Worked at the IT department of the university. Was responsible for giving assistance in technology
+		related issues to students and professors 5 days a week.
 	\end{listBlock}
 
 	\sectionTitle{EDUCATION}
 
 	\subSectionTitle{Gannon University}{Pennsylvania, United States}
-	\educationInfo{Bachelor of Science in Computer Systems Engineering}{May 2025}
+	\educationInfo{Bachelor of Science in Computer Systems Engineering}{May 2025\cite{GannonBSDiploma}}
 
 	\subSectionTitle{Harvard University}{Online}
-	\educationInfo{CS50’s Introduction to Computer Science}{December 2022}
+	\educationInfo{CS50’s Introduction to Computer Science}{December 2022\cite{HarvardCS50Certification}}
 
 	\subSectionTitle{Extreme Networks}{Online}
-	\educationInfo{Introduction to Future Networks}{May 2022}
+	\educationInfo{Introduction to Future Networks}{May 2022\cite{ExtremeCertification}}
+
+	\sectionTitle{PUBLICATIONS}
+
+	\begin{listBlock}
+		\generalItem
+		Mossi, R. A. — “Tag AI-Sandbox,” Proceedings of the ASEE Annual Conference, 2025 (peer-reviewed)..\cite{AITagResearchPublication}
+	\end{listBlock}
 
 	\sectionTitle{ADDITIONAL SKILLS}
 
 	\begin{listBlock}
-		\generalItem Proficient in PowerShell, Bash, and NVim.
+		\generalItem Proficient in PowerShell, Bash, and Neovim.
 
 		\generalItem
-		      Learned React, Next.js, Vite, and Vercel for the deployment and development of my portfolio and link
-		      tree website.
+		Experience developing and deploying web applications using React, Next.js, Vite, and Vercel.
 
 		\generalItem Intermediate level of C++.
 
-		\generalItem Knowledge about automatization using CMake, bash, powershell, and fish.
+		\generalItem Experience with build automation and scripting using CMake, Bash, PowerShell, and fish.
 
 		\generalItem
-		      Learned Linux and made a rice Linux setup with the purpose of increasing my knowledge regarding Operating
-		      Systems, understanding how a machine works, and being able to read other people’s code.
+		Configured and customized Linux environments to deepen understanding of operating systems
+		and low-level system behavior.
 
-		\generalItem Written and oral fluency in Spanish.
-
-		\generalItem Written and oral fluency in English
+		\generalItem Written and oral fluency in Spanish and English.
 
 		\generalItem Written and oral intermediate in Japanese
 
@@ -139,33 +185,30 @@
 
 		\generalItem 3 years of experience making games in Unreal Engine.
 
-		\generalItem 1 year of experience debugging software using Visual Studio, IntelliJ, NVIM, and VSCode.
+		\generalItem 1 year of experience debugging software using Visual Studio, IntelliJ, Neovim, and VSCode.
 
 		\generalItem 1 year of experience developing software in C++.
 
 		\generalItem 5 months of experience developing web apps in JavaScript, HTML, and CSS.
 
-		\generalItem 3 months of experience developing software in Java.
-
-		\generalItem 3 months of experience developing software in C\# and C.
+		\generalItem 3 months of experience developing software in Java, Python, C\#, and C.
 
 		\generalItem 2 months of experience developing large scale cloud services.
 
 		\generalItem 2 months of experience working with Oracle and Oracle Apex.
 
 		\generalItem 2 months of experience developing websites in NodeJS, React, and Next.js.
-
-		\generalItem 3 months of experience developing software in Python.
 	\end{listBlock}
 
 	\sectionTitle{AWARDS AND HONORS}
 
 	\begin{listBlock}
-		\awardItem{School Development Award}{award obtained for outstanding development of a videogame using Blueprints in Unreal Engine 4}{2020}.
+		\awardItem{School Development Award}{award obtained for outstanding development of a videogame using Blueprints in Unreal Engine 4}{2020\cite{SoftwareEngineer2020Award}}
 
-		\awardItem{School Development Award}{award obtained for outstanding development of a videogame using C++ and Unreal Engine 4}{2016}.
+		\awardItem{School Development Award}{award obtained for outstanding development of a videogame using C++ and Unreal Engine 4}{2016\cite{SoftwareEngineer2016Award}}
 	\end{listBlock}
 
+	\bibliographyBlock
 
 \end{Form}
 \end{document}
