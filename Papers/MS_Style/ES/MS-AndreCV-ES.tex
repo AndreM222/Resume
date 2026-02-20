@@ -1,4 +1,5 @@
 \documentclass{../../../Styles/MS-Style}
+\addbibresource{../../../Assets/Citations/references.bib}
 
 \usepackage[
     pdftitle={André Mossi CV (ES)},
@@ -9,174 +10,188 @@
 \begin{document}
 
 \begin{center}
-    \authorTitle{Roberto (André) Mossi Milla}
+	\authorTitle{Roberto (André) Mossi Milla}
 
-    \contactBlock{
-        Erie, Pennsylvania, 16506
-    }{
-        814-790-1591
-    }{
-        mossiroberto0392@gmail.com
-    }{
-        andremossi-linktree.vercel.app
-    }{
-        github.com/AndreM222
-    }
+	\contactBlock{
+		Erie, Pennsylvania, 16506
+	}{
+		814-790-1591
+	}{
+		mossiroberto0392@gmail.com
+	}{
+		andremossi-linktree.vercel.app
+	}{
+		github.com/AndreM222
+	}
 \end{center}
 
 \begin{Form}
-    \sectionTitle{RESUMEN}
-    \normalsize{
-        Desarrollador Full-Stack cursando una Licenciatura en Ciencias de la Computación. He desarrollado proyectos
-        paralelos, tomado clases en línea y estudiado en la Universidad de Gannon con el objetivo de aumentar mis
-        conocimientos.
-    }
+	\sectionTitle{RESUMEN}
+	\normalsize{
+		Ingeniero de Software con una Licenciatura en Ciencias en Ingeniería de Sistemas Informáticos,
+		con experiencia en sistemas de visión por computadora, investigación en inteligencia artificial,
+		sistemas de simulación en tiempo real y plataformas full-stack.
+		Experiencia en colaboración industrial, publicación académica y diseño integral de sistemas.
+	}
 
-    \sectionTitle{EXPERIENCIA LABORAL}
+	\sectionTitle{EXPERIENCIA LABORAL}
 
-    \subSectionTitle{Dinant}{Tegucigalpa, Honduras}
+	\subSectionTitle{Dinant}{Tegucigalpa, Honduras}
 
-    \subSubSectionTitle{Desarrollador Full-Stack}{Junio - Julio 2023}
-    \begin{listBlock}
-        \generalItem
-            Gestioné una base de datos de miles de clientes utilizando SQL, y se trabaje en una aplicación para
-            visualizar e interactuar con los datos. Entre las muchas bases de datos, una de ellas se diseñó para
-            llevar un seguimiento de todos los detalles de la maquinaria, como el estado actual del equipo de varias
-            empresas con las que trabajamos, y para encontrar asistencia fácilmente si era necesario. Otra fue una base
-            de datos utilizada para mantener información sobre compras de productos, estado y tipo de plan, para tener
-            una interacción más rápida y efectiva con los clientes.
+	\subSubSectionTitle{Desarrollador Full-Stack}{Junio - Julio 2023}
+	\begin{listBlock}
+		\generalItem
+		Lideré el diseño y desarrollo integral de dos plataformas web en producción, realizando levantamiento de requisitos,
+		planificación del sistema, diseño de arquitectura de bases de datos, presentaciones al cliente y despliegue final.\cite{DinantRecommendation}
 
-        \generalItem
-            Creé aplicaciones web utilizando Apex Oracle, JavaScript, CSS y algo de HTML para clientes comerciales,
-            principalmente vendedores latinos destacados. Una de ellas tenía como propósito generar contratos
-            digitales de manera sencilla, actualizando en tiempo real las posibles respuestas en los campos
-            obligatorios a medida que el usuario tomaba decisiones, según los permisos del usuario. La otra era una
-            aplicación de asistencia para los trabajadores de fábricas con las que estábamos afiliados, para
-            solicitar ayuda. Basado en el perfil de los usuarios y los campos completados, el programa determinaba
-            los mejores ayudantes que podrían necesitar para sus necesidades.
+		\generalItem
+		Arquitecté e implementé un sistema de gestión del ciclo de vida de contratos para una empresa de venta,
+		alquiler y reparación de dispositivos. Diseñé esquemas relacionales SQL para rastrear el estado de los dispositivos
+		(vendido, alquilado, en reparación, devuelto), elegibilidad de servicio, filtrado por país y registros de clientes en múltiples regiones.
 
-    \end{listBlock}
+		\generalItem
+		Desarrollé una aplicación web multi-rol (Oracle APEX, JavaScript, HTML, CSS) que permite la firma de contratos
+		por invitados, captura de firma digital, generación automática de PDFs y paneles administrativos con filtrado
+		avanzado por fecha, país, estado del dispositivo y estado del contrato.
 
-    \subSectionTitle{Gannon University}{Pennsylvania, Estados Unidos}
+		\generalItem
+		Diseñé un sistema de flujo de trabajo para reparaciones con transiciones de estado, registro de daños,
+		seguimiento de costos, control de tiempo y reportes diarios de actividad para garantizar responsabilidad
+		y transparencia operativa.
 
-    \subSubSectionTitle{Asistente de Investigación}{Agosto 2024 - Mayo 2025}
-    \begin{listBlock}
-        \generalItem
-            Trabaje con un profesor desarrollando una investigación sobre una simulación de organismos destinada
-            a enfatizar la selección natural bajo restricciones ambientales.
+		\generalItem
+		Construí una plataforma de gestión de mantenimiento industrial que permite reportes en tiempo real
+		del estado de maquinaria, flujos de mantenimiento por etapas, notificaciones automáticas, registros de reparación
+		y seguimiento de uso de materiales con deducción automática de inventario y reportes para compras.
 
-        \generalItem
-            La idea de el prjecto era implementar evulution de neurodos con topologia aumentada(NEAT Algorithm)
-            para desarrollar entidades que puedes armar sus propios cerebros con aprendisaje reforzado para
-            adaptarse a differentes tareas dadas.
+		\generalItem
+		Colaboré directamente con stakeholders internacionales, realicé demostraciones iterativas,
+		incorporé retroalimentación de producción y desplegué los sistemas finales utilizados por equipos operativos.
+	\end{listBlock}
 
-        \generalItem
-            Usando technologias como C++, CUDA, CMake, y Unreal Engine, trabaje en traer los organismos a la vida
-            usando inteligencia artifical para estudiar su comportamiento en differentes assignaturas de supervivencia,
-            en este caso era un juego de las traes.
+	\subSectionTitle{Gannon University}{Pensilvania, Estados Unidos}
 
-        \generalItem
-            Mi papel fue acceptado y publicado por la asociacion de educacion de ingenieros de america (ASEE). Y
-            fui invitado y presente en una conferencia dada en Sigma XI en la universidad de Penn State University.
-    \end{listBlock}
+	\subSubSectionTitle{Ingeniero de Visión por Computadora (Proyecto con Socio Industrial – NDA)}{Agosto 2024 - Mayo 2025}
+	\begin{listBlock}
+		\generalItem
+		Arquitecté y desplegué un sistema industrial de trazabilidad en tiempo real utilizando Ultralytics YOLO
+		para detectar y rastrear pallets, generando automáticamente eventos estructurados con imágenes
+		y metadatos de detección.\cite{ComputerVisionVisual}
 
-    \subSubSectionTitle{Ingeniero de Visión por Computadora (Basado en Proyectos) Socio Industrial (NDA)}{Agosto 2024 - Mayo 2025}
-    \begin{listBlock}
-        \generalItem
-        Diseñé e implementé un sistema de trazabilidad basado en cámaras para detectar y rastrear palets en tiempo real
-        utilizando detección de objetos YOLO (Ultralytics).
-        \generalItem
-        Construí una canalización impulsada por eventos que capturaba imágenes y metadatos de detección cuando los
-        palets pasaban frente a las cámaras, permitiendo la detección de daños y anomalías.
-        \generalItem
-        Desarrollé una aplicación web full-stack (React, JavaScript) para visualizar eventos de detección, imágenes y
-        análisis almacenados en TimescaleDB.
-        \generalItem
-        Contenericé y desplegué servicios utilizando Docker, integrando componentes escritos en C++, Python y Rust.
-    \end{listBlock}
+		\generalItem
+		Colaboré en un equipo multidisciplinario contribuyendo en hardware, backend y componentes de software;
+		asumí la responsabilidad principal del panel de monitoreo y la interfaz de visualización.
 
-    \subSubSectionTitle{Assistente de Professor}{Presente}
-    \begin{listBlock}
-        \generalItem
-            Voluntariado para assistente de professor. Responsable de assistir a los estudiantes con aclarar dudas que
-            podrian presentarse en la clase.
-    \end{listBlock}
+		\generalItem
+		Desarrollé un dashboard web full-stack (React, JavaScript) integrado con servicios backend y TimescaleDB
+		para visualizar eventos de detección, imágenes y análisis operativos en tiempo real.
 
-    \subSubSectionTitle{Técnico Estudiantil}{Agosto - Diciembre 2022}
-    \begin{listBlock}
-        \generalItem
-            Trabajé en el departamento de TI de la universidad. Fui responsable de brindar asistencia en problemas
-            relacionados con la tecnología a estudiantes o profesores 5 días a la semana.
-    \end{listBlock}
+		\generalItem
+		Implementé herramientas administrativas dentro del dashboard para eliminar imágenes,
+		corregir detecciones y curar conjuntos de datos etiquetados utilizados para el reentrenamiento iterativo
+		del modelo de detección de objetos, mejorando la calidad del dataset y la confiabilidad del sistema.
 
-    \sectionTitle{EDUCACIÓN}
+		\generalItem
+		Diseñé un pipeline orientado a eventos que sincroniza la captura de frames con metadatos de detección,
+		habilitando flujos posteriores de análisis de anomalías y daños.
 
-    \subSectionTitle{Gannon University}{Pennsylvania, Estados Unidos}
-    Bachelor of Science in Computer Systems Engineering, Presente
+		\generalItem
+		Presenté demostraciones técnicas recurrentes y revisiones del sistema a stakeholders industriales
+		y evaluadores internos, asegurando financiamiento continuo e informando decisiones arquitectónicas,
+		incluyendo la migración a hardware NVIDIA Jetson para mejorar rendimiento y estabilidad térmica.
 
-    \subSectionTitle{Harvard University, En Linea}
-    CS50’s Introduction to Computer Science, Diciembre 2022
+		\generalItem
+		Contenericé servicios distribuidos utilizando Docker e integré componentes en múltiples lenguajes
+		(C++, Python, Rust) para coordinar inferencia, procesamiento de datos y comunicación del sistema.
+	\end{listBlock}
 
-    \subSectionTitle{Extreme Networks, En Linea}
-    Introduction to Future Networks, Mayo 2022
+	\subSubSectionTitle{Asistente de Investigación}{Agosto 2024 - Mayo 2025}
+	\begin{listBlock}
+		\generalItem
+		Realicé investigación bajo supervisión docente en inteligencia artificial multi-agente
+		simulando selección natural y comportamientos de supervivencia en entornos dinámicos.\cite{TagResearchRecommendation}
 
-    \sectionTitle{HABILIDADES ADICIONALES}
-    \begin{listBlock}
-        \generalItem Competente en PowerShell, Bash, and NVIM.
+		\generalItem
+		Implementé NeuroEvolution of Augmenting Topologies (NEAT) para evolucionar arquitecturas de redes neuronales
+		y estrategias de comportamiento a lo largo de generaciones.
 
-        \generalItem
-            Aprendí React, Next.js, Vite y Vercel para el despliegue y desarrollo de mi portafolio y sitio web
-            tipo link tree.
+		\generalItem
+		Desarrollé un entorno de simulación 3D multi-agente en Unreal Engine con generación procedural del mundo,
+		interacciones basadas en física y pipelines de aprendizaje por refuerzo utilizando C++, CUDA y PyTorch.
 
-        \generalItem Nivel intermedio en C++.
+		\generalItem
+		Artículo de investigación aceptado y publicado por la American Society for Engineering Education (ASEE)
+		y presentado en una conferencia Sigma Xi en Penn State University.\cite{AITagResearchPublication} \cite{AITagSigmaXIPresentation}
+	\end{listBlock}
 
-        \generalItem
-            Aprendí Linux e hice una configuración personalizada ("rice") con el propósito de aumentar mi
-            conocimiento sobre sistemas operativos, entender cómo funciona una máquina y ser capaz de leer
-            el código de otras personas.
+	\subSubSectionTitle{Asistente de Professor}{Agosto - Diciembre 2024}
+	\begin{listBlock}
+		\generalItem
+		Voluntario como Asistente de Professor, apoyando a estudiantes resolviendo dudas,
+		aclarando conceptos y reforzando el material del curso durante las sesiones.
+	\end{listBlock}
 
-        \generalItem Fluidez escrita y oral en español.
+	\subSubSectionTitle{Técnico Estudiantil}{Agosto - Diciembre 2022}
+	\begin{listBlock}
+		\generalItem
+		Trabajé en el departamento de TI de la universidad, brindando asistencia en problemas tecnológicos
+		a estudiantes y profesores cinco días a la semana.
+	\end{listBlock}
 
-        \generalItem Fluidez escrita y oral en ingles.
+	\sectionTitle{EDUCACIÓN}
 
-        \generalItem Intermedio escrito y oral en japones.
+	\subSectionTitle{Gannon University}{Pensilvania, Estados Unidos}
+	\educationInfo{Licenciatura en Ingeniería de Sistemas Informáticos}{Mayo 2025}
 
-    \end{listBlock}
+	\subSectionTitle{Harvard University}{En línea}
+	\educationInfo{CS50: Introducción a la Ciencia de la Computación}{Diciembre 2022}
 
-    \sectionTitle{RESUMEN DE CUALIFICACIONES}
+	\subSectionTitle{Extreme Networks}{En línea}
+	\educationInfo{Introducción a Redes del Futuro}{Mayo 2022}
 
-    \begin{listBlock}
-        \generalItem 3 años de experiencia en Windows PowerShell.
+	\sectionTitle{PUBLICACIONES}
 
-        \generalItem 3 años de experiencia creando juegos en Unreal Engine.
+	\begin{listBlock}
+		\generalItem
+		Mossi, R. A. — “Tag AI-Sandbox,” Proceedings of the ASEE Annual Conference, 2025 (revisión por pares).
+	\end{listBlock}
 
-        \generalItem 1 año de experiencia depurando software utilizando Visual Studio, IntelliJ, NVIM y VSCode.
+	\sectionTitle{HABILIDADES ADICIONALES}
 
-        \generalItem 1 año de experiencia desarrollando software en C++.
+	\begin{listBlock}
+		\generalItem Dominio de PowerShell, Bash y Neovim.
+		\generalItem Experiencia desarrollando y desplegando aplicaciones web con React, Next.js, Vite y Vercel.
+		\generalItem Nivel intermedio de C++.
+		\generalItem Experiencia en automatización de compilación y scripting con CMake, Bash, PowerShell y fish.
+		\generalItem Configuración y personalización de entornos Linux para profundizar en sistemas operativos
+		y comportamiento de bajo nivel.
+		\generalItem Fluidez escrita y oral en español e inglés.
+		\generalItem Nivel intermedio escrito y oral en japonés.
+	\end{listBlock}
 
-        \generalItem 5 meses de experiencia desarrollando aplicaciones web en JavaScript, HTML y CSS.
+	\sectionTitle{RESUMEN DE CALIFICACIONES}
 
-        \generalItem 3 meses de experiencia desarrollando software en Java.
+	\begin{listBlock}
+		\generalItem 3 años de experiencia en Windows PowerShell.
+		\generalItem 3 años de experiencia desarrollando videojuegos en Unreal Engine.
+		\generalItem 1 año de experiencia depurando software con Visual Studio, IntelliJ, Neovim y VSCode.
+		\generalItem 1 año de experiencia desarrollando software en C++.
+		\generalItem 5 meses de experiencia desarrollando aplicaciones web en JavaScript, HTML y CSS.
+		\generalItem 3 meses de experiencia desarrollando software en Java, Python, C\# y C.
+		\generalItem 2 meses de experiencia desarrollando servicios cloud a gran escala.
+		\generalItem 2 meses de experiencia trabajando con Oracle y Oracle Apex.
+		\generalItem 2 meses de experiencia desarrollando sitios web en NodeJS, React y Next.js.
+	\end{listBlock}
 
-        \generalItem 3 meses de experiencia desarrollando software en C\# y C.
+	\sectionTitle{PREMIOS Y RECONOCIMIENTOS}
 
-        \generalItem 2 meses de experiencia desarrollando servicios en la nube a gran escala.
+	\begin{listBlock}
+		\awardItem{Premio al Desarrollo Escolar}{Reconocimiento por el desarrollo destacado de un videojuego utilizando Blueprints en Unreal Engine 4}{2020}
 
-        \generalItem 2 meses de experiencia trabajando con Oracle y Oracle Apex.
+		\awardItem{Premio al Desarrollo Escolar}{Reconocimiento por el desarrollo destacado de un videojuego utilizando C++ y Unreal Engine 4}{2016}
+	\end{listBlock}
 
-        \generalItem 2 meses de experiencia desarrollando sitios web en NodeJS, React y Next.js.
-
-        \generalItem 3 meses de experiencia desarrollando software en Python.
-    \end{listBlock}
-
-    \sectionTitle{PREMIOS Y HONORES}
-
-    \begin{listBlock}
-        \awardItem{Premio al Desarrollo Escolar}{obtenido por el destacado desarrollo de un videojuego usando Blueprints en Unreal Engine 4}{2020}.
-
-        \awardItem{Premio al Desarrollo Escolar}{obtenido por el destacado desarrollo de un videojuego utilizando C++ y Unreal Engine 4}{2016}.
-    \end{listBlock}
-
+    \bibliographyBlock[REFERENCIAS]
 
 \end{Form}
 \end{document}
