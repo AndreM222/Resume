@@ -13,13 +13,13 @@
 	\authorTitle{Roberto (André) Mossi Milla}
 
 	\contactBlock{
-		Erie, Pennsylvania, 16506
+		Tegucigalpa, Honduras
 	}{
 		814-790-1591
 	}{
 		mossiroberto0392@gmail.com
 	}{
-		andremossi-linktree.vercel.app
+		andremossi.vercel.app
 	}{
 		github.com/AndreM222
 	}
@@ -29,10 +29,10 @@
 	\sectionTitle{SUMMARY}
     \normalsize{
         Software Engineer experienced in AI-powered full-stack platforms,
-        computer vision systems, and real-time simulation environments.
+        computer vision systems, backend services, and real-time simulation environments.
         Background includes production web applications, artificial intelligence research,
-        cloud integrations, and end-to-end system development across healthcare,
-        industrial automation, and multimodal AI workflows.
+        cloud integrations, data processing, and end-to-end system development across healthcare,
+        insurance, industrial automation, and multimodal AI workflows.
     }
 
 	\sectionTitle{WORK EXPERIENCE}
@@ -43,20 +43,23 @@
     \textbf{AI-Assisted Medical Document Generation Platform}
     \begin{listBlock}
         \generalItem
-        Developed an AI-assisted medical document generation platform for post-surgery reports (IDR),
-        combining OCR extraction pipelines, LLM-powered grammar correction, and automated professional
+        Built an AI-assisted medical document generation platform from the ground up for
+        post-surgery reports (IDR), reducing report preparation from approximately one week
+        to 1--2 days and reducing final document generation to under one minute.
+
+        \generalItem
+        Combined OCR extraction, LLM-assisted grammar correction, and automated professional
         document structuring using Next.js, React, TypeScript, PostgreSQL, AWS S3,
         Amazon Textract, and OpenAI APIs.
 
         \generalItem
         Architected authenticated document management workflows using Auth0, enabling users
-        to generate, analyze, edit, version, and manage AI-generated reports through
-        a full-stack web platform.
+        to upload, generate, analyze, edit, version, review, and manage AI-assisted reports
+        through a full-stack web platform.
 
         \generalItem
-        Designed scalable file-processing pipelines integrating OCR extraction,
-        cloud storage, AWS S3 buckets, and PostgreSQL persistence for intelligent
-        document retrieval and processing.
+        Designed scalable file-processing pipelines integrating OCR extraction, cloud storage,
+        AWS S3, and PostgreSQL persistence for document retrieval and processing.
 
         \generalItem
         Implemented internationalization workflows and automated translation asset generation
@@ -66,22 +69,29 @@
     \textbf{AI Vehicle Damage Assessment Platform}
     \begin{listBlock}
         \generalItem
-        Developed an AI-assisted vehicle damage assessment platform utilizing multimodal AI workflows,
-        VIN history analysis, image-based damage detection, and insurance estimation pipelines.
+        Developed an AI-assisted vehicle damage assessment platform that reduced assessment
+        workflows from more than one week to approximately a minute while automatically
+        generating insurance estimates.
 
         \generalItem
-        Integrated computer vision and LLM APIs to analyze uploaded vehicle imagery,
-        validate VIN-related information, compare against historical vehicle records,
-        and support insurance decision workflows.
+        Integrated AWS Rekognition to localize vehicles within uploaded images and Gemini Flash
+        to detect and analyze vehicle damage within the identified vehicle boundaries.
 
         \generalItem
-        Developed data acquisition services using Playwright to collect and process
-        vehicle information required for valuation and insurance analysis workflows.
+        Integrated multimodal AI, computer vision, VIN-history retrieval, and insurance
+        estimation workflows to support vehicle valuation and claims analysis.
 
         \generalItem
-        Implemented interactive damage annotation and review tools using Konva,
-        allowing users and insurance personnel to identify, visualize, and validate
-        detected vehicle damage regions.
+        Developed data acquisition services using Playwright to collect, normalize, and process
+        vehicle information and historical data from external sources.
+
+        \generalItem
+        Implemented interactive damage annotation and review tools using Konva, allowing users
+        and insurance personnel to identify, visualize, move, and validate detected damage regions.
+
+        \generalItem
+        Developed an experimental AI evaluation workflow using persisted visual annotations,
+        enabling evaluation of different models, processing stages, and combinations of approaches.
 
         \generalItem
         Developed responsive client-facing and administrative dashboards using React,
@@ -97,31 +107,40 @@
 	\subSubSectionTitle{Computer Vision Engineer (Project-Based) Industry Partner (NDA)}{August 2024 - May 2025}
 	\begin{listBlock}
 		\generalItem
-		Architected and deployed a real-time industrial traceability system using Ultralytics YOLO
-		to detect and track pallets, automatically generating structured events with images
-		and detection metadata.\cite{ComputerVisionVisual}
+		Architected and deployed components of a real-time industrial traceability system using
+		LiDAR-triggered image capture and Ultralytics YOLOv8 to detect and track packages and pallets,
+		automatically generating structured events with images and detection metadata.\cite{ComputerVisionVisual}
 
 		\generalItem
-		Collaborated in a cross-functional team contributing across hardware, backend, and software components;
+		Collaborated in a cross-functional team across hardware, backend, and software components;
 		took primary ownership of the monitoring dashboard and visualization interface.
 
 		\generalItem
-		Developed a full-stack web dashboard (React, JavaScript) integrated with backend services and TimescaleDB
-		to visualize detection events, images, and operational analytics in real time.
+		Developed a full-stack web dashboard using React and JavaScript, integrated with backend
+		services and TimescaleDB to visualize detection events, images, and operational information
+		in near real time.
 
 		\generalItem
-		Implemented administrative tools within the dashboard to delete images, correct detections,
-		and curate labeled datasets used for iterative object detection model retraining,
-		improving dataset quality and system reliability.
+		Implemented administrative tools to delete images, move and correct bounding boxes,
+		and curate labeled datasets used for iterative object-detection model retraining.
 
 		\generalItem
-		Engineered an event-driven pipeline that synchronized frame capture with detection metadata,
-		enabling downstream anomaly and damage analysis workflows.
+		Developed image-quality and preprocessing workflows using contrast, color, filtering,
+		spatial image partitioning, and reconstruction techniques to improve image usability
+		within the computer-vision pipeline.
+
+		\generalItem
+		Engineered an event-driven pipeline synchronizing frame capture with detection metadata,
+		enabling downstream anomaly and damage-analysis workflows.
+
+		\generalItem
+		Repeatedly retrained and evaluated YOLOv8 using curated datasets, with dataset development
+		reaching approximately 500 images within the project's time constraints.
 
 		\generalItem
 		Delivered recurring technical presentations and system demonstrations to industry stakeholders
-		and internal reviewers, supporting continued project funding and informing architectural decisions,
-		including migration to NVIDIA Jetson hardware for improved performance and thermal stability.
+		and internal reviewers, contributing to architectural decisions including migration from
+		Raspberry Pi hardware to NVIDIA Jetson for improved performance and thermal stability.
 
 		\generalItem
 		Containerized distributed services using Docker and integrated multi-language components
@@ -132,16 +151,21 @@
 	\begin{listBlock}
 		\generalItem
 		Conducted research under faculty supervision on multi-agent artificial intelligence
-		simulating natural selection and survival behaviors in dynamic environments.\cite{TagResearchRecommendation}
+		simulating natural selection, survival behaviors, and emergent behavior in dynamic
+		three-dimensional environments.\cite{TagResearchRecommendation}
 
 		\generalItem
-		Implemented NeuroEvolution of Augmenting Topologies (NEAT) to evolve neural network architectures and
-		behavioral strategies across generations.
+		Independently implemented NeuroEvolution of Augmenting Topologies (NEAT) in C++,
+		including the genome representation used to encode neural-network structures and behavior.
 
 		\generalItem
-		Developed a 3D multi-agent simulation environment in Unreal Engine featuring
-		procedural world generation, physics-based interactions, and reinforcement learning pipelines
-		using C++, CUDA, and PyTorch.
+		Developed a 3D multi-agent simulation environment in Unreal Engine featuring procedural
+		world generation, physics-based interactions, and evolutionary experimentation using
+		C++, and CUDA
+
+		\generalItem
+		Developed procedurally generated environments containing halls, floors, walls, and props,
+		enabling experiments across randomized scenarios without manually constructing each environment.
 
 		\generalItem
 		Research paper accepted and published by the American Society for Engineering Education
@@ -153,38 +177,62 @@
 	\subSubSectionTitle{Full-Stack Developer}{June - July 2023}
 	\begin{listBlock}
 		\generalItem
-		Led the end-to-end design and development of two production web platforms, conducting requirements
-		gathering, system planning, database architecture design, client presentations, and final
-		deployment.\cite{DinantRecommendation}
+		Led the end-to-end design and development of two production web platforms, conducting
+		requirements gathering, system planning, database architecture design, client presentations,
+		and final deployment.\cite{DinantRecommendation}
 
 		\generalItem
-		Architected and implemented a contract lifecycle management system for a device sales, rental, and repair
-		company. Designed relational SQL schemas to track device state (sold, rented, under repair, returned),
-		service eligibility, country-based filtering, and client records across multiple regions.
+		Architected and implemented a contract lifecycle management system for a device sales,
+		rental, and repair company. Designed relational SQL schemas to track device state
+		(sold, rented, under repair, returned), service eligibility, country-based filtering,
+		and client records across multiple regions.
 
 		\generalItem
-		Developed a multi-role web application (Oracle APEX, JavaScript, HTML, CSS) enabling guest contract signing,
-		digital signature capture, automated PDF generation, and administrative dashboards with advanced filtering
-		by date, country, device state, and contract status.
+		Developed a multi-role web application using Oracle APEX, JavaScript, HTML, and CSS,
+		enabling guest contract signing, digital signature capture, automated PDF generation,
+		and administrative dashboards with advanced filtering by date, country, device state,
+		and contract status.
 
 		\generalItem
-		Engineered a repair workflow system with state transitions, damage logging, cost tracking, time tracking,
-		and daily activity reports to ensure accountability and operational transparency.
+		Engineered a repair workflow system with state transitions, damage logging, cost tracking,
+		time tracking, and daily activity reports to ensure accountability and operational transparency.
 
 		\generalItem
-		Built a factory maintenance management platform enabling real-time machine status reporting, staged
-		maintenance workflows, automated notifications, repair logs, and material usage tracking with automatic
-		inventory deduction and procurement insight reporting.
+		Built a factory maintenance management platform enabling real-time machine status reporting,
+		staged maintenance workflows, automated notifications, repair logs, and material usage
+		tracking with automatic inventory deduction and procurement insight reporting.
 
 		\generalItem
-		Collaborated directly with international stakeholders, conducted iterative demos, incorporated production
-		feedback, and deployed finalized systems used by operational teams.
+		Collaborated directly with international stakeholders, conducted iterative demos,
+		incorporated production feedback, and deployed finalized systems used by operational teams.
+	\end{listBlock}
+
+	\sectionTitle{INDEPENDENT SOFTWARE \& OPEN SOURCE}
+
+	\subSectionTitle{Copilot-Lualine}{Open Source}
+
+	\subSubSectionTitle{Creator \& Maintainer}{2024 - Present}
+	\begin{listBlock}
+		\generalItem
+		Created and maintain an open-source Neovim plugin integrating GitHub Copilot
+		status and controls into the lualine status bar.
+
+		\generalItem
+		Implemented interactive status indicators and controls for monitoring Copilot state,
+		including loading, authentication, and operational status directly within the editor.
+
+		\generalItem
+		Maintain the project with community contributions; the project has received
+		117+ GitHub stars.
 	\end{listBlock}
 
 	\sectionTitle{EDUCATION}
 
 	\subSectionTitle{Gannon University}{Pennsylvania, United States}
 	\educationInfo{Bachelor of Science in Computer Systems Engineering}{May 2025\cite{GannonBSDiploma}}
+
+	\subSectionTitle{ISI Japanese Language School}{Tokyo, Japan}
+	\educationInfo{Intensive Japanese Language Program}{October 2025 - March 2026}
 
 	\subSectionTitle{Harvard University}{Online}
 	\educationInfo{CS50’s Introduction to Computer Science}{December 2022\cite{HarvardCS50Certification}}
@@ -196,7 +244,8 @@
 
 	\begin{listBlock}
 		\generalItem
-		Mossi, R. A. — “Tag AI-Sandbox,” Proceedings of the ASEE Annual Conference, 2025 (peer-reviewed).\cite{AITagResearchPublication}
+		Mossi, R. A. — “Tag AI-Sandbox,” Proceedings of the ASEE Annual Conference,
+		2025 (peer-reviewed).\cite{AITagResearchPublication}
 	\end{listBlock}
 
     \sectionTitle{TECHNICAL SKILLS}
@@ -204,21 +253,21 @@
     \begin{listBlock}
 
         \generalItem
-        Languages: C++, TypeScript, JavaScript, Python, Java, SQL, Bash, PowerShell.
+        Languages: C++, Rust, TypeScript, JavaScript, Python, Java, SQL, Bash, PowerShell, Lua.
 
         \generalItem
-        Frontend: React, Next.js, Vite, Tailwind CSS, Shadcn/UI.
+        Frontend: React, Next.js, Vite, Tailwind CSS, Shadcn/UI, SwiftUI, Konva.
 
         \generalItem
-        Backend \& Cloud: Supabase, PostgreSQL, AWS S3,
-        Amazon Textract, Docker, Auth0, REST APIs.
+        Backend \& Cloud: Rust, Axum, Node.js, Supabase, PostgreSQL, Redis, TimescaleDB,
+        Oracle Database, AWS S3, Amazon Textract, Docker, Auth0, REST APIs.
 
         \generalItem
-        AI \& Computer Vision: OpenAI APIs, Claude APIs, YOLO, CUDA, PyTorch,
-        NEAT, Reinforcement Learning, OCR Pipelines, Multimodal AI Workflows.
+        AI \& Computer Vision: OpenAI APIs, Gemini, Claude APIs, YOLOv8, CUDA, PyTorch,
+        NEAT, evolutionary computation, OCR pipelines, multimodal AI workflows.
 
         \generalItem
-        Developer Tooling: GitHub Actions, Husky, ESLint, Prettier,
+        Developer Tooling: GitHub Actions, Husky, ESLint, Prettier, lint-staged,
         Commitizen, CMake, Git.
 
         \generalItem
