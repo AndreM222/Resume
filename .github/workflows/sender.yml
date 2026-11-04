@@ -3,9 +3,11 @@ name: Send CV Update
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "Papers/MS_Style/**"
+      - "Papers/JA_Style/rirekisho/JP/**"
+      - "Papers/JA_Style/shokumu_keireki_sho/JP/**"
 
 jobs:
   dispatch:
